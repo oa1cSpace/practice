@@ -3,7 +3,7 @@
 
 function concatArray(arr, ...arr2) {
 
-    return concatArr = arr.concat(...arr2);
+    return arr.concat(...arr2);
 }
 
  const arr1 = [1];

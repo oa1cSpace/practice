@@ -4,7 +4,7 @@
 const invalid = [false,null,'0','\"\"', undefined, NaN];
 
 function clearArray(arr) {
-    return  arr.filter (Boolean);
+    return  arr.filter ((v) =>new Boolean(v));
 }
 
 

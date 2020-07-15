@@ -7,9 +7,8 @@
     ];
 
 function pluck(arr, value){
-
     return arr.map(el => el[value]);
 }
 
 
-console.log(pluck(chars, 'name')); // ['tony', 'feel']
+console.log(pluck(chars, 'age')); // ['tony', 'feel']
