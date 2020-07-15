@@ -3,19 +3,7 @@
 // Аргумент функции, который означает кол-во элементов, опциональный и равен 1 по умолчанию.
 // Если элементов меньше, чем указанное кол-во для удаления - вернуть пустой массив
 
-
-/*function rm(arr, remove = 1){
-
-    if(remove < arr.length){
-        for(let i = 0; i < remove; i++){
-            arr.shift();
-        }
-    } else {
-        return arr = new Array();
-    }
-    return  arr;
-}*/
-
+// DO NOT CHANGE INCOMING DATA!!!
 function rm(arr, remove = 1) {
     arr.splice(0, remove);
     return arr;

@@ -3,8 +3,10 @@
 // но не глубже массива в массиве
 
 
+// CHANGE TO SPREAD OPERATOR!!!
 function aCopy(arr) {
-    return  copyArr = arr.slice();
+    const  tempArray = new Array(...arr);
+    return tempArray;
 }
 
 /*

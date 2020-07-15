@@ -1,7 +1,7 @@
 // 3. Напишите функцию, которая принимает на входе массив и число,
 // обозначающее размер группы, на которые нужно разделить исходный массив
 
-
+// REWRITE FUNCTION !!!
 function splitArray(arr,chunks) {
   return arr.map((x, i) => i % chunks == 0 && arr.slice(i, i + chunks)).filter(x => x)
 }

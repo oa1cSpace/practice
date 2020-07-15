@@ -3,6 +3,7 @@
 
 const invalid = [false,null,'0','\"\"', undefined, NaN];
 
+// Boolean WTF?! FILTER ?!!!
 function clearArray(arr) {
     return  arr.filter ((v) =>new Boolean(v));
 }
