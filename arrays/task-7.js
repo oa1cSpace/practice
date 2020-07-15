@@ -15,8 +15,7 @@
 
 function rm(arr, remove = 1) {
 
-    arr.pop(0, remove);
-    return arr;
+    return  [...arr].slice(arr.length-1);
 }
 
 //console.log(rm([1, 2, 3])); // [1, 2]

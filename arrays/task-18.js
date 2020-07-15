@@ -1,14 +1,13 @@
 // 18. Напишите функцию, которая вернет разницу двух массивов
 //     (т.е. элементы, которых нет в исходных массивах)
 
-const arr1 = [1, 2, 'a'];
-const arr2 = [1, 2, 3, 4, 'b'];
+const arr2 = [1, 2, 'a'];
+const arr1 = [1, 2, 3, 4, 'b'];
 
-
-function diff(incomingFirstArray, incomingSecondArray) {
-    const resultArray = new Array(...incomingFirstArray,...incomingSecondArray);
-    return resultArray.filter(function(value){
-        return resultArray.indexOf(value) === resultArray.lastIndexOf(value);
+// смотреть в один массив и сравнивать со вторым !!!
+function diff(arr1, arr2) {
+    return arr1.concat(arr2).filter(function(val, index, arr){
+        return arr.indexOf(val) === arr.lastIndexOf(val);
     });
 }
 

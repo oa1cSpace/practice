@@ -20,17 +20,19 @@ const arr = [1,2,3,4,5,6,7,8,9];
 
 function implode (incomingArray, separator, boolArgument) {
 
-    let resultArray = new Array(...incomingArray);
-    let evenArray = [];   // chet
-    let oddArray = [];    // not chet
 
-    if (boolArgument) {
-        evenArray = resultArray.filter(number => !(number % 2)).join(separator);
-        return evenArray;
-    } else {
-        oddArray = resultArray.filter(number => (number % 2)).join(separator);
-        return  oddArray;
-    };
+
+    /*if (boolArgument) {
+       return resultArray.filter(number => !(number % 2)).join(separator);
+    }
+    else {
+        return resultArray.filter(number => (number % 2)).join(separator);
+    }*/
+
+    return new Array(...incomingArray)
+        .filter(number => boolArgument ? !(number % 2) : (number % 2))
+        .join(separator);
+
 }
 
 

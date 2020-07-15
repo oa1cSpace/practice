@@ -1,8 +1,7 @@
 // 9. Напишите функцию, которая вернет массив с всеми элементами исходного массива, кроме последней ячейки
 
 function init(arr) {
-    tempArr = arr.pop();
-    return arr.slice();
+    return arr
 }
 
 const arr1 = [1,2,3,4];

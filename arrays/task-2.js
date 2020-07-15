@@ -5,8 +5,7 @@
 
 // CHANGE TO SPREAD OPERATOR!!!
 function aCopy(arr) {
-    const  tempArray = new Array(...arr);
-    return tempArray;
+    return new Array(...arr);
 }
 
 /*

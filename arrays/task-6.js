@@ -4,9 +4,9 @@
 // Если элементов меньше, чем указанное кол-во для удаления - вернуть пустой массив
 
 // DO NOT CHANGE INCOMING DATA!!!
-function rm(arr, remove = 1) {
-    arr.splice(0, remove);
-    return arr;
+function rm(incomingArray, remove = 1) {
+    return  [...incomingArray].slice(remove);
+
 }
 
 console.log(rm([1, 2, 3])); // [2, 3]
