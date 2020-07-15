@@ -1,15 +1,6 @@
 // 10. Напишите функцию, которая вернет массив с всеми значениями,
 //      которые повторяются в исходном массиве
 
-/*function uni(arr){
- let result = [];
-  for (let temp of arr) {
-    if ( !result.includes(temp) ) {
-      result.push(temp);
-    }
-  }
-    return result;
-}*/
 
 // not effective !!!!
 function uni(arr){
