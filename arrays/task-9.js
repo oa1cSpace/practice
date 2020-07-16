@@ -2,8 +2,8 @@
 
 
 // use slice or splice ....
-function init(arr) {
-    return arr
+function init(incomingArray) {
+    return  incomingArray.slice(0,incomingArray.length-1);
 }
 
 const arr1 = [1,2,3,4];

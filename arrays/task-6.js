@@ -6,7 +6,6 @@
 // DO NOT CHANGE INCOMING DATA!!!
 function rm(incomingArray, remove = 1) {
     return  [...incomingArray].slice(remove);
-
 }
 
 console.log(rm([1, 2, 3])); // [2, 3]

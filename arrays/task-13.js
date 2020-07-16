@@ -5,20 +5,19 @@
 //      вторая группа - из вторых элементов и т.д.
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function group(...inputArray){
-
+/*function group(...inputArray){
     return inputArray.reduce((acc, value,index)=> {
         acc[0][index] = value [index]
     }, [[],[]])
 
     // slice ==>  возвращает новый массив, содержащий копию части исходного массива.
     // filter ==> заполняет все элементы массива от начального до конечного индексов одним значением.
+}*/
+
+function group(){
+
 }
 
-/*function group(incomingArray1, incomingArray2, incomingArray3){
-    let resultArray = new Array(...incomingArray1,...incomingArray2,...incomingArray3);
-    return resultArray.map(function (value,index, array)  {
-    });
-}*/
+
 
 console.log(group(['a', 'b'], [1, 2], [true, false])); // [['a', 1, true], ['b', 2, false]]
