@@ -5,8 +5,8 @@
 // not effective !!!!
 function uni(arr){
     return arr.filter((v, i, a) => {
-      return a.indexOf(v) !== i
-    })
+        return a.indexOf(v) !== i
+    }).sort();
 }
 
 // try with MAP !

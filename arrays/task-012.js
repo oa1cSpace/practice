@@ -7,3 +7,14 @@ console.log(
         .filter(element => !(element % 2))
         .reduce((accumulator, element) => accumulator + Math.sqrt(element), 0)
 ); // 6
+
+
+/*function sumMathSqForEven(incomingArray) {
+    incomingArray
+        .filter(element => !(element % 2))
+        .reduce((accumulator, element) => accumulator + Math.sqrt(element), 0)
+}
+
+const testArray = [1, 4, 3, 0, 4, 5, 4];
+
+console.log(sumMathSqForEven(testArray));*/
