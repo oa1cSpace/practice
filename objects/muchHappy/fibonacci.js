@@ -16,6 +16,7 @@ function fibo(num) {
     return currentFibo;
 }
 
+console.log(fibo(0))  //  1
 console.log(fibo(5))  //  8
 console.log(fibo(55))  //  225851433717
 console.log(fibo(555))  //  7.041139955842341e+115
