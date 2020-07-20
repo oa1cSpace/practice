@@ -71,46 +71,27 @@ const obj2 = [
     ]
 ];
 
-function fn(value, path = null, f = true) {
-    const parts = path.split(".");
-    console.log('path ==> ' + path);
-    console.log('parts ==> ' + parts);
+/*function fn(value, path, f = null) {
+    const parts = Array.isArray(path) ? path : path.split(".");
     const key = parts[0];  //"string" arr1 // 2
-    console.log('key = parts[0] ==> ' + key);
 
-    if (typeof value === 'object'){
-        console.log('parts.length ==> '+ parts.length)
-        if( parts.length === 1 ){ // parts.length = 2
-            console.log('value[parts[0]] ==> '+value[parts[0]] || (f ? null : false));
-            return value[parts[0]] || (f ? null : false);
-        }
-
-        const result = value[key] || null;
-        console.log('result = value[key]  ==> ' + result);
-
-        if (parts.length > 1){
-            console.log('if (parts.length > 1)');
-            console.log('fn recursion ==> '+fn(value[parts[0]], parts.slice(1).join("."), f));
-            return fn(value[parts[0]], parts.slice(1).join("."), f);  // 2
-        }
-
-        console.log('!parts.length > 1 ==> ' +result)
-            return result;
-
+    if (typeof value !== 'object') {
+        return f;
     }
-    console.log('final return ==> ' + f);
-    return f;
-}
 
-console.log( fn(obj, 'arr1.2') ) // 'c'
-console.log('---')
-console.log( fn(obj, 'arr1.0') ) // 'a'
-console.log('---')
-console.log( fn(obj, 'arr2.0.d') ) // 1
-console.log('---')
-console.log( fn(obj, 'arr3') ) // null
-console.log('---')
-console.log( fn(obj, 'arr3', false) ) // false
-console.log('---')
-console.log( fn(obj2, '0.0.0', false) ) // 1
-console.log('---')
+    if (parts.length === 1) { // parts.length = 2
+
+        return value[key] === undefined ? f : value[key];
+    }
+    return fn(value[key], parts.slice(1), f);  // 2
+}*/
+
+const fn = (obj, path, f = null) => path.split(".").reduce((o, key) => o[key] === undefined ? f : o[key], obj);
+
+
+console.log(fn(obj, 'arr1.2')) // 'c'
+console.log(fn(obj, 'arr1.0')) // 'a'
+console.log(fn(obj, 'arr2.0.d')) // 1
+console.log(fn(obj, 'arr3')) // null
+console.log(fn(obj, 'arr3', false)) // false
+console.log(fn(obj2, '0.0.0', false)) // 1
