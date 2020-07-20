@@ -8,6 +8,6 @@ function randomColorInHex() {
    return random.length == 6 ? '#'+random : '#'+random+0x1;
 }
 
-for (let i=0; i<1500; i++){
+for (let i=0; i<15000; i++){
   console.log (randomColorInHex());
 }

@@ -73,31 +73,44 @@ const obj2 = [
 
 function fn(value, path = null, f = true) {
     const parts = path.split(".");
+    console.log('path ==> ' + path);
+    console.log('parts ==> ' + parts);
     const key = parts[0];  //"string" arr1 // 2
+    console.log('key = parts[0] ==> ' + key);
 
     if (typeof value === 'object'){
-
+        console.log('parts.length ==> '+ parts.length)
         if( parts.length === 1 ){ // parts.length = 2
+            console.log('value[parts[0]] ==> '+value[parts[0]] || (f ? null : false));
             return value[parts[0]] || (f ? null : false);
         }
 
-        const result =  value[key] || null;
-
+        const result = value[key] || null;
+        console.log('result = value[key]  ==> ' + result);
 
         if (parts.length > 1){
+            console.log('if (parts.length > 1)');
+            console.log('fn recursion ==> '+fn(value[parts[0]], parts.slice(1).join("."), f));
             return fn(value[parts[0]], parts.slice(1).join("."), f);  // 2
         }
 
+        console.log('!parts.length > 1 ==> ' +result)
             return result;
 
     }
-
+    console.log('final return ==> ' + f);
     return f;
 }
 
 console.log( fn(obj, 'arr1.2') ) // 'c'
+console.log('---')
 console.log( fn(obj, 'arr1.0') ) // 'a'
+console.log('---')
 console.log( fn(obj, 'arr2.0.d') ) // 1
+console.log('---')
 console.log( fn(obj, 'arr3') ) // null
+console.log('---')
 console.log( fn(obj, 'arr3', false) ) // false
+console.log('---')
 console.log( fn(obj2, '0.0.0', false) ) // 1
+console.log('---')
