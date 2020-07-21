@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <title>Регистрация</title>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <style>
+        body{
+            background: linear-gradient(to right, #3e2b96, #74ebd5);
+            font-family: 'Roboto', sans-serif;
+            font-size: 12px;
+        }
+
+        .form1 {
+            background-color: white;
+            outline: 1px solid #858585;
+            width: 940px;
+            padding: 30px;
+            margin: 0 auto;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+
+        .d1{
+            background-color: white;
+            outline: 1px solid #858585;
+            width: 940px;
+            padding: 30px;
+            margin: 0 auto;
+        }
+
+        .button{
+            background-color: #4CAF50;
+            border-radius: 8px;
+            border: none;
+        }
+
+        input{
+            width: 940px
+
+        }
+        input:invalid {
+            border-color: red;
+        }
+
+        input:valid {
+            border-color: green;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="d1">
+    <h1>Регистрация</h1>
+</div>
+
+<form class="form1" action="index.html">
+    <div>
+        <p>Ваше имя:</p>
+        <input type="text"  pattern="^[A-Za-zА-Яа-яЁё]{4,60}" required>
+    </div>
+    <div>
+        <p>Ваша Фамилия:</p>
+        <input type="text"  pattern="^[A-Za-zА-Яа-яЁё]{4,60}" required>
+    </div>
+    <div>
+        <p>Логин:</p>
+        <input type="text"  pattern="^[a-zA-Z]+${4,60}" required>
+    </div>
+    <div>
+        <p>Email:</p>
+        <input type="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+    </div>
+    <div>
+        <p>Пароль:</p>
+        <input type="password" pattern="^[a-zA-Z0-9]+${4,60}" required>
+    </div>
+    <div>
+        <p>Пол:</p>
+        <select>
+            <option>М</option>
+            <option>Ж</option>
+        </select>
+    </div>
+    <div>
+        <p>Хочу получать новости:</p>
+        <input type="checkbox" name="option2" value="a2">
+    </div>
+    <div>
+    <p style="margin: 0 auto;text-align: center"><button class="button" type="submit">Отправить</button>
+        <button class="button" type="reset">Отчистить</button></p>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:outline="http://www.w3.org/1999/xhtml" xmlns:border="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Регистрация</title>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #3e2b96, #74ebd5);
+            font-family: 'Roboto', sans-serif;
+            font-size: 12px;
+        }
+
+        input {
+            outline: none;
+            border: none;
+            width: 100%;
+        }
+
+        h1{
+            font-weight: bold;
+            text-align: center;
+            color: #35383A;
+        }
+
+        h2{
+            text-align: center;
+            color: #565B61;
+            font-size: 16px;
+            padding-left: 20%;
+            padding-right: 20%;
+        }
+
+        .form1 {
+
+            border-radius: 10px;
+            background-color: white;
+            width: 600px;
+            padding: 30px;
+            margin: 0 auto;
+        }
+
+        .btnRegistration {
+            background-color: lawngreen;
+            border-radius: 8px;
+            border: none;
+        }
+
+        .btnClear {
+            background-color: dodgerblue;
+            border-radius: 8px;
+            border: none;
+        }
+
+
+        .forma{
+
+            margin-bottom: 10px;
+        }
+
+
+        .btnRegistration{
+            width: 150px;
+            padding:10px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 16px;
+            color: #fff;
+            font-weight: 400;
+            display: inline-block;
+            float: right;
+            margin-top: 20px;
+            background-color: #4eab40;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .btnClear{
+            width: 100px;
+            padding:10px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 16px;
+            color: #fff;
+            display: inline-block;
+            font-weight: 400;
+            margin-top: 20px;
+            background-color: #3F7DBF;
+            border: none;
+            border-radius: 5px;
+           /* float: left;*/
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+
+<form class="form1" action="index.html">
+
+
+        <h1>Регистрация</h1>
+        <h2>Для регистрации, укажите Ваши данные. Все текствые поля обязательны для заполнения</h2>
+
+
+    <div class="forma">
+        <fieldset >
+            <legend >Имя</legend>
+            <input  type="text" class="fname" pattern="^[A-Za-zА-Яа-яЁё]{4,60}"
+                   placeholder="Имя" required>
+        </fieldset>
+    </div>
+
+    <div class="forma">
+        <fieldset >
+            <legend >Фамилия</legend>
+            <input  type="text" class="lname" pattern="^[A-Za-zА-Яа-яЁё]{4,60}"
+                   placeholder="Фамилия" required>
+        </fieldset>
+    </div>
+
+    <div class="forma">
+        <fieldset >
+            <legend >Логин</legend>
+            <input  type="text" class="login" pattern="^[a-zA-Z]+${4,60}" placeholder="Логин" required>
+        </fieldset>
+    </div>
+
+    <div class="forma">
+        <fieldset >
+            <legend > Email</legend>
+            <input  type="email" class="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                   placeholder="Email" required>
+        </fieldset>
+    </div>
+
+    <div class="forma">
+        <fieldset>
+            <legend>Пароль</legend>
+            <input  type="password" class="password" pattern="^[a-zA-Z0-9]+${4,60}" placeholder="Пароль"
+                   required>
+        </fieldset>
+    </div>
+
+
+    <div>
+
+    </div>
+
+    <div>
+        <p style="margin: 0 auto;text-align: center">
+            <button class="btnRegistration" type="submit">Регистрация</button>
+            <button class="btnClear" type="reset">Сброс</button>
+        </p>
+    </div>
+</form>
+</body>
+</html>

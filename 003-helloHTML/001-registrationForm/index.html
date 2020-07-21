@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <style>
+        .registration {
+            display: block;
+            margin: 0 auto;
+            width: 940px;
+            margin-top: 30px;
+        }
+
+        .formFieldWidth {
+            width: 940px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="registration">
+    <form class="form">
+        <div class="welcomeRegistration">Welcome to registration page</div>
+        <div>
+            <label for="fname">Your name</label>
+            <input class="formFieldWidth" name="fname" type="text" id="fname"  required
+                   pattern="[A-Za-z]{4,60}">
+        </div>
+        <div>
+            <label for="lname">Your last name</label>
+            <input class="formFieldWidth" name="lname" id="lname" type="text"  required
+                   pattern="[A-Za-z]{4,60}"></div>
+        <div>
+            <label for="login">Login</label>
+            <input class="formFieldWidth" type="text" name="login" id="login"  required
+                   pattern="[A-Za-z0-9]{4,60}"></div>
+        <div>
+            <label for="pass">Password</label>
+            <input class="formFieldWidth" type="password" name="pass" id="pass"  required
+                   pattern="[A-Za-z0-9]{4,60}">
+        </div>
+        <div>
+            <label for="mail">E-mail</label>
+            <input class="formFieldWidth" type="email" name="mail" id="mail"  required
+                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"></div>
+        <div>
+            <label>Gender</label>
+            <select name="gender" id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="doubt">Doubt</option>
+            </select></div>
+        <div>
+            <input type="checkbox" checked>Receive latest news!
+        </div>
+        <div>
+            <!--BUTTONS:-->
+            <button type="submit">Submit</button>
+            <button type="reset" value="">Clean</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

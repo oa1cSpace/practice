@@ -86,7 +86,9 @@ const obj2 = [
     return fn(value[key], parts.slice(1), f);  // 2
 }*/
 
-const fn = (obj, path, f = null) => path.split(".").reduce((o, key) => o[key] === undefined ? f : o[key], obj);
+const fn = (obj, path, f = null) => path
+    .split(".")
+    .reduce((accumulator, currentValue) => accumulator[currentValue] === undefined ? f : accumulator[currentValue], obj);
 
 
 console.log(fn(obj, 'arr1.2')) // 'c'
