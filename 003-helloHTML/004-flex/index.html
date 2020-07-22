@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:outline="http://www.w3.org/1999/xhtml" xmlns:border="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Регистрация</title>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+          rel="stylesheet">
+    <style>
+
+        body {
+            margin-top: 10%;
+            background: linear-gradient(to right, #3e2b96, #74ebd5);
+            font-family: 'Roboto', sans-serif;
+            font-size: 12px;
+        }
+
+        .flex-container-btn {
+            flex-direction: row-reverse;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .flex-container-fullname {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .registrationField__input {
+            outline: none;
+            border: none;
+            font-weight: 100;
+        }
+
+        .registrationField__legend {
+            color: #808080;
+        }
+
+        .fieldset {
+            border-color: #e3e3e3;
+            border-style: solid;
+            border-radius: 4px;
+        }
+
+        .registrationForm {
+            border-radius: 10px;
+            background-color: white;
+            width: 450px;
+            padding: 30px;
+            margin: 0 auto;
+        }
+
+        .registrationForm__title {
+            font-weight: bold;
+            text-align: center;
+            color: #333333;
+        }
+
+        .registrationForm__text {
+            font-weight: 400;
+            text-align: center;
+            color: #666666;
+            font-size: 16px;
+            padding-left: 10%;
+            padding-right: 10%;
+            margin-bottom: 7%;
+        }
+
+        .registrationField {
+            margin-bottom: 17px;
+        }
+
+        .registrationField__fname {
+            width: 42%;
+        }
+
+        .registrationField__lname {
+            width: 42%;
+        }
+
+        .btn:after {
+            width: 100%;
+            clear: both;
+        }
+
+        .btn__Registration {
+            width: 130px;
+            padding: 10px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 16px;
+            color: #fff;
+            font-weight: 400;
+            margin-top: 20px;
+            background-color: #4eab40;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .btn__Clear {
+            width: 80px;
+            padding: 10px;
+            text-decoration: none;
+            text-align: center;
+            font-size: 16px;
+            color: #fff;
+            font-weight: 400;
+            margin-top: 20px;
+            background-color: #3F7DBF;
+            border: none;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+<form class="registrationForm" action="index.html">
+
+    <h1 class="registrationForm__title">Регистрация</h1>
+    <h2 class="registrationForm__text">Для регистрации, укажите Ваши данные. Все текствые поля обязательны для
+        заполнения</h2>
+
+    <div class="registrationField flex-container-fullname">
+        <fieldset class="fieldset registrationField__fname">
+            <legend class="registrationField__legend">Имя</legend>
+            <input type="text" class="registrationField__input fname" pattern="^[A-Za-zА-Яа-яЁё]{4,60}"
+                   placeholder="Имя" required>
+        </fieldset>
+
+        <fieldset class="fieldset registrationField__lname">
+            <legend class="registrationField__legend">Фамилия</legend>
+            <input type="text" class="registrationField__input lname" pattern="^[A-Za-zА-Яа-яЁё]{4,60}"
+                   placeholder="Фамилия" required>
+        </fieldset>
+    </div>
+
+    <div class="registrationField">
+        <fieldset class="fieldset">
+            <legend class="registrationField__legend"> Email</legend>
+            <input type="email" class="registrationField__input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                   placeholder="example@email.com" required>
+        </fieldset>
+    </div>
+
+    <div class="registrationField">
+        <fieldset class="fieldset">
+            <legend class="registrationField__legend">Логин</legend>
+            <input type="text" class="registrationField__input" pattern="^[a-zA-Z]+${4,60}" placeholder="Логин"
+                   required>
+        </fieldset>
+    </div>
+
+    <div class="registrationField">
+        <fieldset class="fieldset">
+            <legend class="registrationField__legend">Пароль</legend>
+            <input type="password" class="registrationField__input" pattern="^[a-zA-Z0-9]+${4,60}" required>
+        </fieldset>
+    </div>
+
+    <div class="btn flex-container-btn">
+        <button class="btn__Registration" type="submit">Регистрация</button>
+        <button class="btn__Clear" type="reset">Сброс</button>
+    </div>
+</form>
+</body>
+</html>
