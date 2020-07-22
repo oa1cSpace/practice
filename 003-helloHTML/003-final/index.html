@@ -3,9 +3,11 @@
 <head>
     <title>Регистрация</title>
     <meta charset="utf-8">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <style>
+
         body {
+            margin-top: 10%;
             background: linear-gradient(to right, #3e2b96, #74ebd5);
             font-family: 'Roboto', sans-serif;
             font-size: 12px;
@@ -14,54 +16,70 @@
         input {
             outline: none;
             border: none;
-            width: 100%;
+            font-weight: 100;
         }
 
-        h1{
+        fieldset {
+            border-color: #e3e3e3;
+            border-style: solid;
+            border-radius: 4px;
+        }
+
+        legend{
+            color: #808080;
+        }
+
+
+        .registrationForm__title {
             font-weight: bold;
             text-align: center;
-            color: #35383A;
+            color: #333333;
         }
 
-        h2{
+        .registrationForm__text {
+            font-weight: 400;
             text-align: center;
-            color: #565B61;
+            color: #666666;
             font-size: 16px;
-            padding-left: 20%;
-            padding-right: 20%;
+            padding-left: 10%;
+            padding-right: 10%;
+            margin-bottom: 7%;
         }
 
-        .form1 {
 
+
+        .registrationForm {
             border-radius: 10px;
             background-color: white;
-            width: 600px;
+            width: 450px;
             padding: 30px;
             margin: 0 auto;
         }
 
-        .btnRegistration {
-            background-color: lawngreen;
-            border-radius: 8px;
-            border: none;
+        .registrationField {
+            margin-bottom: 17px;
         }
 
-        .btnClear {
-            background-color: dodgerblue;
-            border-radius: 8px;
-            border: none;
+        .registrationField__fname {
+            float: left;
+            margin-right: 22px;
+            width: 42%;
         }
 
-
-        .forma{
-
-            margin-bottom: 10px;
+        .registrationField__lname {
+            width: 42%;
         }
 
+        .btn:after {
+            content: '';
+            display: table;
+            width: 100%;
+            clear: both;
+        }
 
-        .btnRegistration{
-            width: 150px;
-            padding:10px;
+        .btn__Registration {
+            width: 130px;
+            padding: 10px;
             text-decoration: none;
             text-align: center;
             font-size: 16px;
@@ -75,9 +93,9 @@
             border-radius: 5px;
         }
 
-        .btnClear{
-            width: 100px;
-            padding:10px;
+        .btn__Clear {
+            width: 80px;
+            padding: 10px;
             text-decoration: none;
             text-align: center;
             font-size: 16px;
@@ -88,72 +106,58 @@
             background-color: #3F7DBF;
             border: none;
             border-radius: 5px;
-           /* float: left;*/
         }
-
-
 
     </style>
 </head>
 <body>
 
+<form class="registrationForm" action="index.html">
 
-<form class="form1" action="index.html">
+    <h1 class="registrationForm__title">Регистрация</h1>
+    <h2 class="registrationForm__text">Для регистрации, укажите Ваши данные. Все текствые поля обязательны для заполнения</h2>
 
-
-        <h1>Регистрация</h1>
-        <h2>Для регистрации, укажите Ваши данные. Все текствые поля обязательны для заполнения</h2>
-
-
-    <div class="forma">
-        <fieldset >
-            <legend >Имя</legend>
-            <input  type="text" class="fname" pattern="^[A-Za-zА-Яа-яЁё]{4,60}"
+    <div class="registrationField">
+        <fieldset class="registrationField__fname">
+            <legend>Имя</legend>
+            <input type="text" class="fname" pattern="^[A-Za-zА-Яа-яЁё]{4,60}"
                    placeholder="Имя" required>
         </fieldset>
     </div>
 
-    <div class="forma">
-        <fieldset >
-            <legend >Фамилия</legend>
-            <input  type="text" class="lname" pattern="^[A-Za-zА-Яа-яЁё]{4,60}"
+    <div class="registrationField">
+        <fieldset class="registrationField__lname">
+            <legend>Фамилия</legend>
+            <input type="text" class="lname" pattern="^[A-Za-zА-Яа-яЁё]{4,60}"
                    placeholder="Фамилия" required>
         </fieldset>
     </div>
 
-    <div class="forma">
-        <fieldset >
-            <legend >Логин</legend>
-            <input  type="text" class="login" pattern="^[a-zA-Z]+${4,60}" placeholder="Логин" required>
+    <div class="registrationField">
+        <fieldset>
+            <legend> Email</legend>
+            <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                   placeholder="example@email.com" required>
         </fieldset>
     </div>
 
-    <div class="forma">
-        <fieldset >
-            <legend > Email</legend>
-            <input  type="email" class="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                   placeholder="Email" required>
+    <div class="registrationField">
+        <fieldset>
+            <legend>Логин</legend>
+            <input type="text" pattern="^[a-zA-Z]+${4,60}" placeholder="Логин" required>
         </fieldset>
     </div>
 
-    <div class="forma">
+    <div class="registrationField">
         <fieldset>
             <legend>Пароль</legend>
-            <input  type="password" class="password" pattern="^[a-zA-Z0-9]+${4,60}" placeholder="Пароль"
-                   required>
+            <input type="password" pattern="^[a-zA-Z0-9]+${4,60}" required>
         </fieldset>
     </div>
 
-
-    <div>
-
-    </div>
-
-    <div>
-        <p style="margin: 0 auto;text-align: center">
-            <button class="btnRegistration" type="submit">Регистрация</button>
-            <button class="btnClear" type="reset">Сброс</button>
-        </p>
+    <div class="btn">
+        <button class="btn__Registration" type="submit">Регистрация</button>
+        <button class="btn__Clear" type="reset">Сброс</button>
     </div>
 </form>
 </body>
