@@ -2,386 +2,517 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap" rel="stylesheet">
     <title>News</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-          rel="stylesheet">
 
     <style>
+
+        html, body, div, span, applet, object, iframe,
+        h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+        a, abbr, acronym, address, big, cite, code,
+        del, dfn, em, img, ins, kbd, q, s, samp,
+        small, strike, strong, sub, sup, tt, var,
+        b, u, i, center,
+        dl, dt, dd, ol, ul, li,
+        fieldset, form, label, legend,
+        table, caption, tbody, tfoot, thead, tr, th, td,
+        article, aside, canvas, details, embed,
+        figure, figcaption, footer, header, hgroup,
+        menu, nav, output, ruby, section, summary,
+        time, mark, audio, video {
+            /* margin: 0;
+             padding: 0;*/
+            border: 0;
+            font-size: 100%;
+            font: inherit;
+            vertical-align: baseline;
+        }
+
+        /* HTML5 display-role reset for older browsers */
+        article, aside, details, figcaption, figure,
+        footer, header, hgroup, menu, nav, section {
+            display: block;
+        }
+
+        /* body {
+             line-height: 1;
+         }*/
+
+        ol, ul {
+            list-style: none;
+        }
+
+        blockquote, q {
+            quotes: none;
+        }
+
+        blockquote:before, blockquote:after,
+        q:before, q:after {
+            content: '';
+            content: none;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
 
         body {
             background-color: #5f9ea0;
         }
 
-        .flex-container-topic {
+
+        /* ====  TITLE   ==== */
+        .containerTitle {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            color: #fff;
+            font-size: 34px;
+
+
+        }
+
+        /* ===  PARENT CONTAINER === */
+        .container {
             display: flex;
             justify-content: center;
         }
 
-        .topic {
-            color: white;
-        }
-
-        .flex-container-new_title {
-            display: flex;
-            justify-content: left;
-        }
-
-        .flex-container-news {
-
+        /* ===== CONTAINER INSIDE IN THE PARENT CONTAINER ===== */
+        .mainContainer {
             display: flex;
             justify-content: space-between;
+            max-width: 1000px;
         }
 
-        .news {
+        /*  =====  FORMATTING TEXT IN THE NEWS CARD ===== */
+
+        .news-topic {
+            color: black;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            line-height: 1.3em;
+        }
+
+        .news-body {
+            color: #848484;
+        }
+
+        .news-text {
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+            padding: 15px;
+            flex: 100%;
+
+        }
+
+        .news-footer {
+            display: flex;
+            justify-content: space-between;
+            align-content: flex-end;
+            font-size: 12px;
+            color: #848484;
+
+        }
+
+
+        .backgroundColorOfCard {
             background-color: white;
         }
 
-        .flex-container-1 {
+        .leftBigBlockMargin{
+            min-height: 480px;
+        }
+
+
+        /* ===== CONTAINERS POSITION ====== */
+
+        .mainContainer-leftBlock + .mainContainer-rightBlock {
+            margin-left: 15px;
+        }
+
+        /*-----   LEFT SIDE   --------*/
+
+        .mainContainer-leftBlock {
             display: flex;
-            justify-content: flex-start;
+            flex-direction: column;
         }
 
-        .flex-container-1:first-child {
-            align-self: center;
+        .mainContainer-leftBlock-bottomPart {
+            display: flex;
+            justify-content: center;
         }
 
-        .news {
-            height: 100%;
-            width: 100%;
+        .mainContainer-leftBlock-bottomPart-smallRightParts {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
         }
 
-        /*.img {
-            flex: 33%;
-            padding: 5px;
-        }*/
 
-        .news-dateAndComments {
+        .news-card-top-bigPart {
             display: flex;
             justify-content: space-between;
         }
 
+        .mainContainer-leftBlock-topPart-marginBottom {
+            margin-bottom: 15px;
+        }
+
+        .mainContainer-leftBlock-bottomPart-bigLeftPart-marginRight {
+            margin-right: 15px;
+            display: flex;
+        }
+
+
+        /*-----   RIGHT SIDE   --------*/
+        .mainContainer-rightBlock {
+            display: flex;
+            flex-direction: column;
+
+        }
+
+        .smallBlocksMarginBottom {
+            margin-bottom: 15px;
+            flex-grow: 2;
+        }
+
+
+        /*================================*/
+
+
+        .news-picture {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+        }
+
+
     </style>
+
 </head>
+
 <body>
 
-<div class="flex-container-topic">
-    <h1 class="topic">Новости</h1>
+
+<div class="containerTitle">
+    <h1>Новости</h1>
 </div>
 
-<div class="news flex-container-news">
+<div class="container">
 
-    <div class="news-1 flex-container-1">
+    <div class="mainContainer">
 
 
-        <h2 class="news-title flex-container-new_title">Xiaomi выпустит недорогой смартфон Poco C3 с процессором Helio
-            G35</h2>
-        <p>Бренд Poco, представленный китайской компанией Xiaomi в августе 2018 года, вскоре анонсирует очередной
-            смартфон,
-            о чём сообщают интернет-источники. Новинка будет относиться к бюджетному ценовому сегменту.
-            Речь идёт об аппарате с кодовым обозначением М2006С3МІ.
-            Предполагается, что на коммерческом рынке он дебютирует под именем Poco C3,
-            пополнив ассортимент недорогих устройств.
-            В основу новинки ляжет модель Redmi 9C (показана на изображения), анонсированная менее месяца назад.
-            А это означает, что Poco C3 получит 6,53-дюймовый дисплей формата HD+ с разрешением 1600 × 720 точек
-            и процессор MediaTek Helio G35, который содержит восемь ядер Cortex-A53 с тактовой частотой до 2,3 ГГц
-            и графический ускоритель IMG PowerVR GE8320 GPU.
-            Смартфон Redmi 9C располагает 5-мегапиксельной фронтальной камерой, а также тройной основной камерой
-            с датчиками на 13, 5 и 2 млн пикселей. У Poco C3 конфигурация камер может остаться такой же или оказаться
-            иной.
-            Вероятно, в оснащение готовящегося аппарата войдут 2 Гбайт оперативной памяти,
-            флеш-накопитель вместимостью 32 Гбайт и мощная аккумуляторная батарея ёмкостью 5000 мА·ч.
-            Операционная система — Android 10.
-            Цена Poco C3, скорее всего, не превысит 100 долларов США. </p>
-        <div class="img">
-            <img src="pics/news1_mobilePhones.jpg" alt="Poco C3 с процессором Helio G35">
+        <!--================  LEFT BLOCK  ==================-->
+        <div class="mainContainer-leftBlock">
+
+
+            <!--LEFT BLOCK, TOP PART-->
+            <div class="mainContainer-leftBlock-topPart">
+
+
+                <!--LEFT BLOCK, TOP PART, NEWS 1-->
+                <div class="news-card-top-bigPart backgroundColorOfCard mainContainer-leftBlock-topPart-marginBottom">
+
+
+                    <div class="news-text">
+
+                        <div class="news-topic">
+                            <h2>Xiaomi выпустит недорогой смартфон Poco C3 с
+                                процессором
+                                Helio G35</h2>
+                        </div>
+
+                        <div class="news-body">
+                            <p>
+                                Бренд Poco, представленный китайской компанией Xiaomi в августе 2018 года, вскоре
+                                анонсирует
+                                очередной смартфон, о чём сообщают интернет-источники. Новинка будет относиться к
+                                бюджетному
+                                ценовому сегменту.
+                            </p>
+                        </div>
+
+                        <div class="news-footer ">
+                            <div class="news-date">22.07.2020 15:48</div>
+                            <div class="news-comment">10 коментариев</div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="news-picture">
+                        <img src="pics/MOBILES.jpg" alt="Poco C3 с процессором Helio G35" class="news-picture">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ======   LEFT BLOCK, BOTTOM PART ======== -->
+            <div class="mainContainer-leftBlock-bottomPart">
+
+                <!--LEFT BLOCK, BOTTOM PART, BIG LEFT PART-->
+                <div class="mainContainer-leftBlock-bottomPart-bigLeftPart mainContainer-leftBlock-bottomPart-bigLeftPart-marginRight">
+
+                    <!--LEFT BLOCK, BOTTOM PART, BIG LEFT PART, NEWS 1-->
+                    <div class="news-card-bigLeftPart backgroundColorOfCard">
+
+                        <div class="news-picture">
+                            <img src="pics/FF.jpg" alt="Final Fantasy VII">
+                        </div>
+
+                        <div class="news-text ">
+
+                            <div class="news-topic ">
+                                <h2>Вторую часть ремейка Final Fantasy VII</h2>
+                            </div>
+
+                            <div class="news-body leftBigBlockMargin">
+                                <p>
+                                    В недавнем интервью японскому изданию Famitsu ведущие разработчики Final Fantasy VII
+                                    Remake подтвердили, что производство второго эпизода вошло в полномасштабную фазу. В
+                                    той же беседе один из
+                                    директоров по разработке проекта Тецуя Номура (Tetsuya Nomura) рассказал, что не
+                                    позволил внести слишком много изменений во вторую половину игры.
+                                </p>
+                            </div>
+
+                            <div class="testFooterDown">
+                                <div class="news-footer">
+                                    <div class="news-date">22.07.2020 15:48</div>
+                                    <div class="news-comment">10 коментариев</div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+                <div class="mainContainer-leftBlock-bottomPart-smallRightParts">
+
+                    <!--LEFT BLOCK, BOTTOM PART, SMALL RIGHT PARTS, NEWS 1-3-->
+                    <div class="news-card blocksSize backgroundColorOfCard smallBlocksMarginBottom">
+
+                        <div class="news-picture">
+                            <img src="pics/AMD.jpg" alt="Final Fantasy VII">
+                        </div>
+
+                        <div class="news-text">
+
+                            <div class="news-topic">
+                                <h2>Ускоритель AMD Radeon</h2>
+                            </div>
+
+                            <div class="news-body">
+                                <p>
+                                    MI100 сможет соперничать с NVIDIA A100.
+                                    Поставки систем на базе ускорителей Radeon Instinct MI100 начнутся в четвёртом
+                                    квартале
+                                    этого
+                                    года
+                                </p>
+                            </div>
+
+                            <div class="news-footer">
+                                <div class="news-date">22.07.2020 15:48</div>
+                                <div class="news-comment">10 коментариев</div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!--LEFT BLOCK, BOTTOM PART, SMALL RIGHT PARTS, NEWS 2-3-->
+                    <div class="news-card blocksSize backgroundColorOfCard smallBlocksMarginBottom">
+
+                        <div class="news-text">
+
+                            <div class="news-topic">
+                                <h2>ASUS</h2>
+                            </div>
+
+                            <div class="news-body">
+                                <p>
+                                    Панель может похвастаться высокой частотой обновления — 144 Гц. Кроме того, ASUS
+                                    говорит
+                                    о широких углах обзора.
+                                </p>
+                            </div>
+
+                            <div class="news-footer">
+                                <div class="news-date">22.07.2020 15:48</div>
+                                <div class="news-comment">10 коментариев</div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!--LEFT BLOCK, BOTTOM PART, SMALL RIGHT PARTS, NEWS 3-3-->
+                    <div class="news-card blocksSize backgroundColorOfCard">
+
+                        <div class="news-text ">
+
+                            <div class="news-topic">
+                                <h2>Игровую гарнитуру</h2>
+                            </div>
+
+                            <div class="news-body">
+                                <p>Игровая гарнитура ASUS ROG Cetra RGB погружного типа
+                                    снабжена активным шумоподавлением</p>
+                            </div>
+
+                            <div class="news-footer">
+                                <div class="news-date">22.07.2020 15:48</div>
+                                <div class="news-comment">10 коментариев</div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
         </div>
-        <div class="news-dateAndComments">
-            <p>22.07.2020 15:48</p>
-            <p>10 коментариев</p>
+
+
+        <!--================  RIGHT BLOCK  ==================-->
+        <div class="mainContainer-rightBlock">
+
+
+            <!--RIGHT BLOCK, NEWS 1-->
+            <div class="news-card blocksSize backgroundColorOfCard smallBlocksMarginBottom">
+
+                <div class="news-picture">
+                    <img src="pics/ROBOTS.jpg" alt="Роботы-доставщики Amazon Scout">
+                </div>
+
+                <div class="news-text">
+
+                    <div class="news-topic">
+                        <h2>Роботы-доставщики Amazon Scout</h2>
+                    </div>
+
+                    <div class="news-body ">
+                        <p>
+                            В Атланте (штат Джорждия) и Франклине (штат Теннесси) доставкой посылок Amazon некоторым
+                            клиентам
+                            начали
+                            заниматься роботы. Компания развернула в этих городах свою систему доставки с помощью
+                            небольших
+                            электрических автономных роботов Scout на колёсиках.
+                        </p>
+                    </div>
+
+                    <div class="news-footer">
+                        <div class="news-date">22.07.2020 15:48</div>
+                        <div class="news-comment">10 коментариев</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!--RIGHT BLOCK, NEWS 2-->
+            <div class="news-card blocksSize backgroundColorOfCard smallBlocksMarginBottom">
+
+                <div class="news-text">
+
+                    <div class="news-topic">
+                        <h2>NVIDIA GeForce RTX 2080</h2>
+                    </div>
+
+                    <div class="news-body">
+                        <p>
+                            На близость анонса игровых видеокарт NVIDIA поколения Ampere
+                        </p>
+                    </div>
+
+                    <div class="news-footer">
+                        <div class="news-date">22.07.2020 15:48</div>
+                        <div class="news-comment">10 коментариев</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!--RIGHT BLOCK, NEWS 3-->
+            <div class="news-card blocksSize backgroundColorOfCard smallBlocksMarginBottom">
+
+                <div class="news-text">
+
+                    <div class="news-topic">
+                        <h2>Huawei</h2>
+                    </div>
+
+                    <div class="news-body">
+                        <p>
+                            Компания TrendForce обнародовала прогноз...
+                        </p>
+                    </div>
+
+                    <div class="news-footer">
+                        <div class="news-date">22.07.2020 15:48</div>
+                        <div class="news-comment">10 коментариев</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!--RIGHT BLOCK, NEWS 4-->
+            <div class="news-card blocksSize backgroundColorOfCard">
+
+                <div class="news-text">
+
+                    <div class="news-topic">
+                        <h2>KDE Slimbook</h2>
+                    </div>
+
+                    <div class="news-body">
+                        <p>
+                            Компания KDE объявила о выходе ноутбука Slimbook.
+                        </p>
+                    </div>
+
+                    <div class="news-footer">
+                        <div class="news-date">22.07.2020 15:48</div>
+                        <div class="news-comment">10 коментариев</div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
         </div>
+
 
     </div>
 
-    <div class="news-2 ">
-        <div class="img">
-            <img src="pics/robots.jpg" alt="Роботы-доставщики Amazon Scout">
-        </div>
-        <h2 class="news-title flex-container-new_title">Роботы-доставщики Amazon Scout появились ещё в двух штатах
-            США</h2>
-        <p>
-            В Атланте (штат Джорждия) и Франклине (штат Теннесси) доставкой посылок Amazon некоторым клиентам начали
-            заниматься роботы. Компания развернула в этих городах свою систему доставки с помощью небольших
-            электрических автономных роботов Scout на колёсиках.
-            Scout напоминает небольшую мусорку на колёсиках. Он самостоятельно строит маршрут, движется примерно с той
-            же скоростью, с которой ходят люди, и может уклоняться от препятствий. Amazon утверждает, что эти устройства
-            успешно распознают объекты, в том числе выброшенные рождественские ёлки, старые холодильники и даже доски
-            для сёрфинга. На изображении можно увидеть кольцо датчиков чуть ниже синей части корпуса.
-            Цель Scout — доставлять небольшие посылки. И, согласно сообщению в блоге Amazon, технология стала ещё более
-            актуальной во время пандемии COVID-19, с массовым переходом людей на покупки в онлайне.
-            Мы уже писали ранее, что Amazon начала тестовые испытания доставки при помощи Scout в двух других местах
-            США: в Ирвине (штат Калифорния) и округе Снохомиш (штат Вашингтон). Подобные технологии призваны дополнить
-            традиционные методы доставки Amazon и стать ещё одним крошечным шагом на пути к достижению компанией цели в
-            2040 году добиться нулевых выбросов углерода.
-            «Мы начали с небольшого количества устройств Amazon Scout, они будут работать с понедельника по пятницу в
-            дневное время. Клиенты в обоих городах будут делать заказы, как обычно, и их посылки Amazon будут доставлены
-            одним из наших надёжных партнёров-перевозчиков или Amazon Scout. Доступны те же варианты доставки, включая
-            быструю и бесплатную в день заказа, однодневную и двухдневную доставку для членов Prime. Роботы будут
-            самостоятельно следовать по маршруту доставки и первоначально будут сопровождаться представителем Amazon».
-            Компания утверждает, что тестирование на юге США призвано обкатать Scout в другом климате, предоставив
-            полезные данные и информацию перед более широким развёртыванием.
-        </p>
-        <div class="news-dateAndComments">
-            <p>22.07.2020 15:48</p>
-            <p>10 коментариев</p>
-        </div>
-    </div>
 
-    <div class="news-3">
-        <div class="img">
-            <img src="pics/final_fantasy.jpg" alt="Final Fantasy VII">
-        </div>
-        <h2 class="news-title flex-container-new_title">Вторую часть ремейка Final Fantasy VII хотели изменить ещё
-            сильнее, но Тецуя Номура не позволил</h2>
-        <p>
-            В недавнем интервью японскому изданию Famitsu ведущие разработчики Final Fantasy VII Remake подтвердили, что
-            производство второго эпизода вошло в полномасштабную фазу. В той же беседе один из директоров по разработке
-            проекта Тецуя Номура (Tetsuya Nomura) рассказал, что не позволил внести слишком много изменений во вторую
-            половину игры.
-            Фрагменты интервью перевёл пользователь Reddit под псевдонимом MKillerby. «Мы с самого начала решили, каким
-            должен быть ремейк Final Fantasy VII, поэтому почти никаких разногласий [об изменениях сюжета] не было, —
-            сказал Номура. — Однако мнения людей в команде не всегда совпадали, так что мы говорили о том, насколько
-            выраженными должны быть изменения. Особенно много мы обсуждали вторую половину игры. В таких спорах я
-            выступал своего рода преградой».
-            Также Номура признался, что после выпуска первой части прежде всего почувствовал «облегчение». «Ремейк ещё
-            не завершён, но, думаю, все уже поняли, в каком направлении мы движемся», — отметил он.
-            Разработчики стремятся закончить работу над вторым эпизодом как можно скорее, однако о сроках его выхода
-            пока говорить не готовы. «Мы хотим, чтобы следующая часть превзошла первую по качеству и доставила
-            поклонникам ещё больше удовольствия», — сказал Номура.
-            Второй директор по разработке Наоки Хамагути (Naoki Hamaguchi), также занимающий позиции ведущего дизайнера
-            и ведущего программиста, постоянно напоминал команде о том, насколько важно «уважать оригинальное
-            произведение». «Это не новая игра, вдохновлённая миром и персонажами Final Fantasy VII, а переделанный
-            оригинал с современными дизайном и графикой, — отметил он. — Мы хотели добиться ощущения чего-то знакомого и
-            нового одновременно. Мы старались сохранить существующие элементы и добавляли детали, которые невозможно
-            было представить двадцать лет назад».
-            «Сотрудники помоложе боялись вносить какие-то изменения, — продолжил он. — А продюсер Ёсинори Китасе
-            (Yoshinori Kitase), например, просил значительно переделать игру. Я и Номура были уверены в том, что ремейк
-            должен с уважением относиться к оригиналу, поэтому одобряли только те новшества, которые могли быть приняты
-            поклонниками».
-            «В следующей части игроки вырвутся из Мидгара в просторные локации, — добавил Хамагути. — Я хочу, чтобы в
-            ней чувствовалась атмосфера мира Final Fantasy VII, но чтобы при этом она ещё сильнее пленила игроков».
-            Первая часть Final Fantasy VII Remake вышла 10 апреля 2020 года эксклюзивно для PlayStation 4. Спустя год
-            после релиза игра станет доступна на других платформах. За три дня продажи RPG по всему миру превысили 3,5
-            млн копий, что сделало её одним из лидеров по скорости продаж среди всех эксклюзивов консоли. Сейчас рекорд
-            принадлежит The Last of Us Part II (четыре миллиона копий за тот же период).
-            Критики отзывались о ремейке очень положительно: рейтинг на Metacritic составил 87 из 100 возможных баллов.
-            Журналисты и игроки хвалили создателей в том числе за то, что им удалось расширить сюжетную составляющую и
-            историю вселенной, сохранив при этом всё, что полюбилось фанатам. Многим даже понравилась неоднозначная
-            сцена с переодеванием Клауда: её ощутимо переработали по сравнению с оригинальной, за которую был
-            ответственен Мотому Торияма (Motomu Toriyama).
-        </p>
-        <div class="news-dateAndComments">
-            <p>22.07.2020 15:48</p>
-            <p>10 коментариев</p>
-        </div>
-    </div>
-
-    <div class="news-4">
-        <div class="img">
-            <img src="pics/radeon.jpg" alt="Ускоритель AMD Radeon Instinct MI100">
-        </div>
-        <h2 class="news-title flex-container-new_title">Ускоритель AMD Radeon Instinct MI100 на базе архитектуры CDNA
-            сможет потягаться с NVIDIA A100</h2>
-        <p>
-            Ускоритель вычислений Radeon Instinct MI100 должен стать первым серийным продуктом AMD с архитектурой CDNA,
-            которая является производной формой RDNA для серверного сегмента. Новинка выйдет в этом полугодии, предложит
-            в два раза больше вычислительных блоков по сравнению с предшественником, а также сможет связываться с семью
-            себе подобными ускорителями.
-            Источник изображения: AMD
-            О характеристиках Radeon Instinct MI100 поведал популярный канал AdoredTV. Данное вычислительное решение в
-            новостях часто фигурирует под кодовым обозначением Arcturus, а недавно факт подготовки его к анонсу невольно
-            подтвердил технический директор AMD Марк Пейпермастер (Mark Papermaster).
-            Radeon Instinct MI100 получит довольно крупный 7-нм кристалл площадью около 750 мм2, на котором расположатся
-            120 вычислительных блоков — в два раза больше по сравнению с Radeon Instinct MI50, а вот функциональных
-            блоков для ускорения графики у этого процессора не будет вообще. Память типа HBM2 совокупным объёмом 32
-            Гбайт расположится вокруг процессора в четырёх стеках. Пропускная способность памяти достигнет 1,2 терабайта
-            в секунду. Быстродействие в вычислениях с плавающей запятой двойной точности достигнет 9,5 терафлопс,
-            одинарной — 42 терафлопс, половинной — 150 терафлопс. Ожидается, что именно в вычислениях одинарной точности
-            MI100 сможет соперничать с NVIDIA A100.
-            Источник изображения: AdoredTV
-            TDP достигнет 300 Вт, но в реалиях серверного рынка сам ускоритель наверняка будет комплектоваться обширным
-            радиатором, а его обдувом займутся корпусные вентиляторы сервера. Ускоритель будет предлагаться в двух
-            вариантах по признаку сочленения с себе подобными: в одном можно будет объединять до четырёх MI100 на
-            кластер, в другом — сразу восемь. Интерфейс Infinity Fabric позволит наладить быстрый обмен данными не
-            только между ускорителями, но и с центральными процессорами, даже если в роли последних будут выступать
-            Intel Xeon.
-            Поставки систем на базе ускорителей Radeon Instinct MI100 начнутся в четвёртом квартале этого года или в
-            первом квартале следующего, в зависимости от конфигурации. Формальный анонс может состояться раньше, ещё в
-            текущем квартале. AMD в качестве целевого рынка видит сег
-        </p>
-        <div class="news-dateAndComments">
-
-            <p>22.07.2020 15:48</p>
-            <p>10 коментариев</p>
-
-        </div>
-    </div>
-
-    <div class="news-5 ">
-        <h2 class="news-title flex-container-new_title">NVIDIA GeForce RTX 2080 Ti подорожала до $1700 перед
-            исчезновением</h2>
-        <p>
-            На близость анонса игровых видеокарт NVIDIA поколения Ampere указывает и сокращающийся ассортимент видеокарт
-            GeForce RTX 2080 Ti в зарубежных магазинах. Там немногочисленные оставшиеся предложения доходят в цене до
-            $1600, а фирменный интернет-магазин NVIDIA с его ценником в районе $1200 уже не кажется спекулянтом.
-            Источник изображения: NVIDIA
-            Рейд по американским торговым сетям позволил сайту Hardware Times выявить резкое сокращение ассортимента
-            предложений GeForce RTX 2080 Ti. Цены на сохранившиеся в наличии экземпляры поднялись до $1700, за $1200 уже
-            предлагаются бывшие в употреблении или отремонтированные экземпляры. EVGA видеокарты данной модели полностью
-            исключила из своего каталога и фирменного интернет-магазина.
-            В Европе ситуация более благополучная — здесь GeForce RTX 2080 Ti можно приобрести за сумму около 1200 евро,
-            да и на выбор жаловаться не приходится. Аналогичным образом обстоят дела в российской рознице, а цены могут
-            даже показаться заманчивыми на фоне зарубежных — они стартуют с уровня 86–89 тысяч рублей. Эталонная версия
-            GeForce RTX 2080 Ti в фирменном интернет-магазине NVIDIA оценивается в 119 990 рублей, но её нет в наличии.
-            Не приходится сомневаться, что по мере истощения товарных запасов цены на GeForce RTX 2080 Ti пойдут вверх и
-            в российской рознице.
-            Анонс преемников в лице видеокарт с архитектурой Ampere состоится не ранее августа или сентября, а их
-            стартовые цены наверняка окажутся высокими. Расстановка сил с точки зрения быстродействия пока не ясна
-            окончательно, поэтому на протяжении некоторого времени GeForce RTX 2080 Ti может сохранять привлекательность
-            для покупателей.
-        </p>
-        <div class="news-dateAndComments">
-
-            <p>22.07.2020 15:48</p>
-            <p>10 коментариев</p>
-
-        </div>
-    </div>
-
-    <div class="news-6">
-        <h2 class="news-title flex-container-new_title">ASUS представила портативный игровой монитор ROG Strix XG16 с
-            частотой 144 Гц</h2>
-        <p>
-            Новинка может применяться в паре со смартфоном или ноутбуком. Монитор имеет размер 15,6 дюйма по диагонали и
-            обладает разрешением 1920 × 1080 пикселей, что соответствует формату Full HD.
-
-            Панель может похвастаться высокой частотой обновления — 144 Гц. Кроме того, ASUS говорит о широких углах
-            обзора. Специальная подставка позволяет располагать устройство в альбомной или портретной ориентации.
-
-            Монитор совместим со штативом ROG Tripod, который позволяет размещать устройство на различной высоте и под
-            разными углами. Например, панель можно установить непосредственно над игровым ноутбуком, сформировав тем
-            самым двухдисплейную конфигурацию.
-
-            Для подключения источников сигнала и подачи питания предусмотрены два симметричных разъёма USB Type-C и
-            интерфейс Micro-HDMI. Монитор может работать и в полностью автономном режиме, получая питание от встроенной
-            аккумуляторной батареи.
-
-            Информация об ориентировочной цене модели ROG Strix XG16 на данный момент, к сожалению, отсутствует.
-        </p>
-        <div class="news-dateAndComments">
-
-            <p>22.07.2020 15:48</p>
-            <p>10 коментариев</p>
-
-        </div>
-    </div>
-
-    <div class="news-7 ">
-        <h2 class="news-title flex-container-new_title">Huawei станет крупнейшим поставщиком 5G-смартфонов в 2020
-            году</h2>
-        <p>
-            Компания TrendForce обнародовала прогноз по мировому рынку смартфонов, обладающих поддержкой мобильной связи
-            пятого поколения (5G) на текущий год. Ожидается, что первую строку в рейтинге поставщиков таких аппаратов
-            займёт китайский гигант Huawei.
-
-
-            Reuters
-            По оценкам аналитиков, в 2020-м в глобальном масштабе будет реализовано около 1,24 млрд «умных» сотовых
-            аппаратов. Из них примерно 235 млн штук составят 5G-устройства. Таким образом, проникновение смартфонов с
-            поддержкой 5G достигнет 18,9 %.
-
-            Huawei сможет отгрузить приблизительно 74 млн 5G-аппаратов, заняв 31 % данного сегмента рынка. На втором
-            месте, согласно прогнозу TrendForce, расположится Apple с 70 млн выпущенных 5G-моделей iPhone и долей в 30
-            %. «Бронза» достанется Samsung — 29 млн единиц и 12 %.
-
-
-            Далее последуют сразу три китайских разработчика — Vivo, OPPO и Xiaomi. Эти компании по итогам 2020 года,
-            как ожидается, смогут реализовать соответственно 21, 20 и 19 млн 5G-смартфонов. Доли составят 8–9 %.
-
-            Все прочие поставщики сообща смогут занять лишь приблизительно 2 % глобального рынка смартфонов с поддержкой
-            5G.
-
-        </p>
-        <div class="news-dateAndComments">
-            <p>22.07.2020 15:48</p>
-            <p>10 коментариев</p>
-        </div>
-    </div>
-
-    <div class="news-8">
-        <h2 class="news-title flex-container-new_title">Игровая гарнитура ASUS ROG Cetra RGB погружного типа снабжена
-            активным шумоподавлением</h2>
-        <p>
-            Компания ASUS представила игровую гарнитуру погружного типа ROG Cetra RGB: новинка подходит для применения
-            со смартфонами, консолью Nintendo Switch и персональными компьютерами.
-
-
-            В устройстве задействованы качественные 10-миллиметровые излучатели ASUS Essence. Диапазон воспроизводимых
-            частот простирается от 20 Гц до 40 кГц. Пользователям обещан чистый сбалансированный звук.
-
-            Для подключения служит проводное соединение с симметричным коннектором USB Type-C. Пульт управления
-            позволяет регулировать уровень громкости, приостанавливать/возобновлять воспроизведение и пр.
-
-
-            Реализована система активного шумоподавления (ANC). В режиме Ambient Mode будут слышны звуки окружающей
-            среды, что будет полезным во время разговоров или прослушивания музыки на улице.
-
-
-            ASUS не забыла о фирменной подсветке Aura RGB: она обеспечивает возможность отображения 16,8 млн цветовых
-            оттенков. Комплект поставки включает накладки разного размера и футляр для переноски.
-
-            Сведений о цене гарнитуры ROG Cetra RGB пока, к сожалению, нет.
-        </p>
-        <div class="news-dateAndComments">
-            <p>22.07.2020 15:48</p>
-            <p>10 коментариев</p>
-        </div>
-    </div>
-
-    <div class="news-9">
-        <h2 class="news-title flex-container-new_title">KDE Slimbook стал одним из первых ноутбуков на Linux и AMD Ryzen
-            7 4800H</h2>
-        <p>
-            Компания KDE объявила о выходе ноутбука Slimbook третьего поколения, который является одним из первых
-            ноутбуков под управлением Linux, получившим восьмиядерный процессор AMD Ryzen 7 4800H. Этот флагманский чип
-            обладает тактовой частотой до 4,2 ГГц и возможностью обработки до 16 потоков инструкций одновременно.
-
-
-            Новый ноутбук KDE Slimbook предлагается в двух версиях — ProX и ProX 15, отличающихся размером экрана. В
-            первом случае используется дисплей диагональю 14 дюймов, а во втором — 15,6 дюйма. Обе модели оснащены
-            IPS-панелями с LED-подсветкой, обеспечивающими разрешение 1080p и 100-процентный охват цветового
-            пространства sRGB, а также яркость не менее 300 кд/м2.
-
-
-            Новинки получили прочный корпус из магниевого сплава толщиной всего 20 мм. Вес 14-дюймовой версии ProX равен
-            всего 1,1 кг, 15,6-дюймовая модель весит 1,5 кг.
-
-            Объём двухканальной оперативной памяти DDR4 (3200 МГц) ноутбуков составляет от 16 до 64 Гбайт, ёмкость
-            накопителя SSD NVMe — до 2 Тбайт. Ёмкость батареи 14-дюймовой модели KDE Slimbook ProX равна 47 Вт·ч. Этого
-            достаточно для 5 часов работы в автономном режиме. У 15,6-дюймовой модели ProX 15 имеется батарея ёмкостью
-            92 Вт·ч.
-
-
-            Коммуникационные возможности новых ноутбуков включают три порта USB Type-A, порт USB Type-C, а также разъёмы
-            HDMI и RJ45.
-
-            Стоимость 14-дюймовой версии KDE Slimbook начинается с 899 евро, цена 15,6-дюймовой модели стартует с 929
-            евро.
-        </p>
-        <div class="news-dateAndComments">
-            <p>22.07.2020 15:48</p>
-            <p>10 коментариев</p>
-        </div>
-    </div>
 </div>
+
+
+</div>
+
 </body>
 </html>
