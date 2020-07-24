@@ -98,6 +98,8 @@
         }
 
         .news-body {
+            display: flex;
+            flex: 1;
             color: #848484;
         }
 
@@ -113,7 +115,7 @@
         .news-footer {
             display: flex;
             justify-content: space-between;
-            align-content: flex-end;
+           /* align-content: flex-end;*/
             font-size: 12px;
             color: #848484;
 
@@ -124,9 +126,23 @@
             background-color: white;
         }
 
-        .leftBigBlockMargin{
-            min-height: 480px;
+
+        .news-picture {
+            display: flex;
+            justify-content: center;
+            align-content: center;
         }
+
+        .footerDownForColumns{
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footerDownForRow{
+            display: flex;
+        }
+
+
 
 
         /* ===== CONTAINERS POSITION ====== */
@@ -185,11 +201,7 @@
         /*================================*/
 
 
-        .news-picture {
-            display: flex;
-            justify-content: center;
-            align-content: center;
-        }
+
 
 
     </style>
@@ -217,7 +229,7 @@
 
 
                 <!--LEFT BLOCK, TOP PART, NEWS 1-->
-                <div class="news-card-top-bigPart backgroundColorOfCard mainContainer-leftBlock-topPart-marginBottom">
+                <div class="news-card-top-bigPart backgroundColorOfCard mainContainer-leftBlock-topPart-marginBottom footerDownForRow">
 
 
                     <div class="news-text">
@@ -262,7 +274,7 @@
                 <div class="mainContainer-leftBlock-bottomPart-bigLeftPart mainContainer-leftBlock-bottomPart-bigLeftPart-marginRight">
 
                     <!--LEFT BLOCK, BOTTOM PART, BIG LEFT PART, NEWS 1-->
-                    <div class="news-card-bigLeftPart backgroundColorOfCard">
+                    <div class="news-card-bigLeftPart backgroundColorOfCard footerDownForColumns">
 
                         <div class="news-picture">
                             <img src="pics/FF.jpg" alt="Final Fantasy VII">
@@ -274,7 +286,7 @@
                                 <h2>Вторую часть ремейка Final Fantasy VII</h2>
                             </div>
 
-                            <div class="news-body leftBigBlockMargin">
+                            <div class="news-body">
                                 <p>
                                     В недавнем интервью японскому изданию Famitsu ведущие разработчики Final Fantasy VII
                                     Remake подтвердили, что производство второго эпизода вошло в полномасштабную фазу. В
@@ -284,12 +296,12 @@
                                 </p>
                             </div>
 
-                            <div class="testFooterDown">
+
                                 <div class="news-footer">
                                     <div class="news-date">22.07.2020 15:48</div>
                                     <div class="news-comment">10 коментариев</div>
                                 </div>
-                            </div>
+
 
 
                         </div>
@@ -302,7 +314,7 @@
                 <div class="mainContainer-leftBlock-bottomPart-smallRightParts">
 
                     <!--LEFT BLOCK, BOTTOM PART, SMALL RIGHT PARTS, NEWS 1-3-->
-                    <div class="news-card blocksSize backgroundColorOfCard smallBlocksMarginBottom">
+                    <div class="news-card blocksSize backgroundColorOfCard smallBlocksMarginBottom footerDownForColumns">
 
                         <div class="news-picture">
                             <img src="pics/AMD.jpg" alt="Final Fantasy VII">
@@ -334,7 +346,7 @@
                     </div>
 
                     <!--LEFT BLOCK, BOTTOM PART, SMALL RIGHT PARTS, NEWS 2-3-->
-                    <div class="news-card blocksSize backgroundColorOfCard smallBlocksMarginBottom">
+                    <div class="news-card blocksSize backgroundColorOfCard smallBlocksMarginBottom footerDownForColumns">
 
                         <div class="news-text">
 
@@ -360,7 +372,7 @@
                     </div>
 
                     <!--LEFT BLOCK, BOTTOM PART, SMALL RIGHT PARTS, NEWS 3-3-->
-                    <div class="news-card blocksSize backgroundColorOfCard">
+                    <div class="news-card blocksSize backgroundColorOfCard footerDownForColumns">
 
                         <div class="news-text ">
 
@@ -395,7 +407,7 @@
 
 
             <!--RIGHT BLOCK, NEWS 1-->
-            <div class="news-card blocksSize backgroundColorOfCard smallBlocksMarginBottom">
+            <div class="news-card blocksSize backgroundColorOfCard smallBlocksMarginBottom footerDownForColumns">
 
                 <div class="news-picture">
                     <img src="pics/ROBOTS.jpg" alt="Роботы-доставщики Amazon Scout">
@@ -429,7 +441,7 @@
 
 
             <!--RIGHT BLOCK, NEWS 2-->
-            <div class="news-card blocksSize backgroundColorOfCard smallBlocksMarginBottom">
+            <div class="news-card blocksSize backgroundColorOfCard smallBlocksMarginBottom footerDownForColumns">
 
                 <div class="news-text">
 
@@ -454,7 +466,7 @@
 
 
             <!--RIGHT BLOCK, NEWS 3-->
-            <div class="news-card blocksSize backgroundColorOfCard smallBlocksMarginBottom">
+            <div class="news-card blocksSize backgroundColorOfCard smallBlocksMarginBottom footerDownForColumns">
 
                 <div class="news-text">
 
@@ -479,7 +491,7 @@
 
 
             <!--RIGHT BLOCK, NEWS 4-->
-            <div class="news-card blocksSize backgroundColorOfCard">
+            <div class="news-card blocksSize backgroundColorOfCard footerDownForColumns">
 
                 <div class="news-text">
 
@@ -507,10 +519,6 @@
 
 
     </div>
-
-
-</div>
-
 
 </div>
 
