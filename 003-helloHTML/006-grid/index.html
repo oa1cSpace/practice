@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap" rel="stylesheet">
+    <title>Hello grid!</title>
+
+    <style>
+
+        body{
+            background-color: #5f9ea0;
+        }
+
+        .centerBlock{
+            display: grid;
+            justify-content: center;
+        }
+
+        .gridContainer{
+            display: grid;
+            max-width: 1000px;
+            grid-template-columns: repeat();
+        }
+
+        .containerTitle{
+            display: grid;
+            justify-content: center;
+            color: white;
+        }
+
+        .news-text{
+            background-color: white;
+        }
+
+
+
+
+    </style>
+</head>
+
+
+<body>
+
+<div class="containerTitle">
+    <h1>Новости</h1>
+</div>
+
+<div class="centerBlock">
+
+    <div class="gridContainer">
+
+
+        <div class="item1">
+
+            <div class="news-text">
+
+                <div class="news-topic">
+                    <h2>Xiaomi выпустит недорогой смартфон Poco C3 с
+                        процессором
+                        Helio G35</h2>
+                </div>
+
+                <div class="news-body">
+                    <p>
+                        Бренд Poco, представленный китайской компанией Xiaomi в августе 2018 года, вскоре
+                        анонсирует
+                        очередной смартфон, о чём сообщают интернет-источники. Новинка будет относиться к
+                        бюджетному
+                        ценовому сегменту.
+                    </p>
+                </div>
+
+                <div class="news-footer ">
+                    <div class="news-date">22.07.2020 15:48</div>
+                    <div class="news-comment">10 коментариев</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="item2">
+
+            <div class="news-picture">
+                <img src="pics/FF.jpg" alt="Final Fantasy VII">
+            </div>
+
+            <div class="news-text ">
+
+                <div class="news-topic ">
+                    <h2>Вторую часть ремейка Final Fantasy VII</h2>
+                </div>
+
+                <div class="news-body">
+                    <p>
+                        В недавнем интервью японскому изданию Famitsu ведущие разработчики Final Fantasy VII
+                        Remake подтвердили, что производство второго эпизода вошло в полномасштабную фазу. В
+                        той же беседе один из
+                        директоров по разработке проекта Тецуя Номура (Tetsuya Nomura) рассказал, что не
+                        позволил внести слишком много изменений во вторую половину игры.
+                    </p>
+                </div>
+
+
+                <div class="news-footer">
+                    <div class="news-date">22.07.2020 15:48</div>
+                    <div class="news-comment">10 коментариев</div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="item3">
+
+            <div class="news-picture">
+                <img src="pics/AMD.jpg" alt="Final Fantasy VII">
+            </div>
+
+            <div class="news-text">
+
+                <div class="news-topic">
+                    <h2>Ускоритель AMD Radeon</h2>
+                </div>
+
+                <div class="news-body">
+                    <p>
+                        MI100 сможет соперничать с NVIDIA A100.
+                        Поставки систем на базе ускорителей Radeon Instinct MI100 начнутся в четвёртом
+                        квартале
+                        этого
+                        года
+                    </p>
+                </div>
+
+                <div class="news-footer">
+                    <div class="news-date">22.07.2020 15:48</div>
+                    <div class="news-comment">10 коментариев</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="item4">
+
+            <div class="news-text">
+
+                <div class="news-topic">
+                    <h2>ASUS</h2>
+                </div>
+
+                <div class="news-body">
+                    <p>
+                        Панель может похвастаться высокой частотой обновления — 144 Гц. Кроме того, ASUS
+                        говорит
+                        о широких углах обзора.
+                    </p>
+                </div>
+
+                <div class="news-footer">
+                    <div class="news-date">22.07.2020 15:48</div>
+                    <div class="news-comment">10 коментариев</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="item5">
+
+            <div class="news-text ">
+
+                <div class="news-topic">
+                    <h2>Игровую гарнитуру</h2>
+                </div>
+
+                <div class="news-body">
+                    <p>Игровая гарнитура ASUS ROG Cetra RGB погружного типа
+                        снабжена активным шумоподавлением</p>
+                </div>
+
+                <div class="news-footer">
+                    <div class="news-date">22.07.2020 15:48</div>
+                    <div class="news-comment">10 коментариев</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="item6">
+
+            <div class="news-picture">
+                <img src="pics/ROBOTS.jpg" alt="Роботы-доставщики Amazon Scout">
+            </div>
+
+            <div class="news-text">
+
+                <div class="news-topic">
+                    <h2>Роботы-доставщики Amazon Scout</h2>
+                </div>
+
+                <div class="news-body ">
+                    <p>
+                        В Атланте (штат Джорждия) и Франклине (штат Теннесси) доставкой посылок Amazon некоторым
+                        клиентам
+                        начали
+                        заниматься роботы. Компания развернула в этих городах свою систему доставки с помощью
+                        небольших
+                        электрических автономных роботов Scout на колёсиках.
+                    </p>
+                </div>
+
+                <div class="news-footer">
+                    <div class="news-date">22.07.2020 15:48</div>
+                    <div class="news-comment">10 коментариев</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="item7">
+
+             <div class="news-text">
+
+                    <div class="news-topic">
+                        <h2>NVIDIA GeForce RTX 2080</h2>
+                    </div>
+
+                    <div class="news-body">
+                        <p>
+                            На близость анонса игровых видеокарт NVIDIA поколения Ampere
+                        </p>
+                    </div>
+
+                    <div class="news-footer">
+                        <div class="news-date">22.07.2020 15:48</div>
+                        <div class="news-comment">10 коментариев</div>
+                    </div>
+
+                </div>
+
+        </div>
+
+        <div class="item8">
+
+            <div class="news-text">
+
+                <div class="news-topic">
+                    <h2>Huawei</h2>
+                </div>
+
+                <div class="news-body">
+                    <p>
+                        Компания TrendForce обнародовала прогноз...
+                    </p>
+                </div>
+
+                <div class="news-footer">
+                    <div class="news-date">22.07.2020 15:48</div>
+                    <div class="news-comment">10 коментариев</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="item9">
+
+            <div class="news-text">
+
+                <div class="news-topic">
+                    <h2>KDE Slimbook</h2>
+                </div>
+
+                <div class="news-body">
+                    <p>
+                        Компания KDE объявила о выходе ноутбука Slimbook.
+                    </p>
+                </div>
+
+                <div class="news-footer">
+                    <div class="news-date">22.07.2020 15:48</div>
+                    <div class="news-comment">10 коментариев</div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+</body>
+</html>
