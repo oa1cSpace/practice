@@ -35,8 +35,6 @@ body {
     justify-content: space-around;
 }
 
-
-
 .pic {
     max-width: 100%;
     height: 200px;
@@ -46,7 +44,7 @@ body {
     margin-bottom: 10px;
 }
 
-.jumbotron{
+.jumbotron {
     padding: 0px;
 }
 
@@ -59,23 +57,23 @@ body {
 }
 
 /*   ====  BREADCRUMBS  ====    */
-.crumbs-bg-color{
+.crumbs-bg-color {
     background-color: white;
 }
 
 
 /*    ====  SIDE BAR  ====    */
-.side-bar{
+.side-bar {
     position: absolute;
 }
 
-max-width{
+max-width {
     width: 300px;
 }
 
 
 /*    ====  SIDE BAR  ====    */
-.marg-left{
+.marg-left {
     margin-left: 15px;
 }
 
@@ -93,7 +91,7 @@ max-width{
         padding: 0px;
     }
 
-    .side-bar{
+    .side-bar {
         position: unset;
     }
 
@@ -113,7 +111,7 @@ max-width{
         padding: 0px;
     }
 
-    .side-bar{
+    .side-bar {
         position: unset;
 
     }
@@ -133,7 +131,7 @@ max-width{
         padding: 0px;
     }
 
-    .side-bar{
+    .side-bar {
         position: unset;
 
     }
