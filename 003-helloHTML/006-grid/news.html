@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News</title>
+
+    <style>
+
+        body {
+            background-color: #3F7DBF;
+
+        }
+
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .gridBody {
+            display: grid;
+            justify-content: center;
+
+        }
+
+        .mainContainer {
+            display: grid;
+            max-width: 900px;
+
+        }
+
+        .topicOfContainer {
+            display: grid;
+            justify-content: center;
+            padding: 1em;
+            color: white;
+        }
+
+
+
+        .card1{
+            display: grid;
+            grid-template-columns: 50% 50%;
+
+        }
+
+        .text{
+            display: grid;
+            grid-template-rows: 20% 1fr 20%;
+            background-color: white;
+            padding: 1em;
+        }
+
+        .footer{
+            display: grid;
+            grid-row: 3;
+            grid-template-columns: 1fr 1fr;
+        }
+
+
+
+        .news-comment{
+            display: grid;
+            grid-column-end: 4;
+        }
+
+        .pic{
+            display: grid;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    </style>
+
+</head>
+<body>
+
+
+<div class="topicOfContainer">
+    <h1>Новости</h1>
+</div>
+
+<div class="gridBody">
+
+
+    <div class="mainContainer">
+
+
+        <div class="card1">
+
+            <div class="text">
+
+                <div class="topic">
+                    <h2>Объектив «Зенитар-12» рассчитан на полнокадровые беззеркальные камеры</h2>
+                </div>
+
+                <div class="news-body">
+                    <p>Красногорский завод им. С.А. Зверева холдинга «Швабе» в октябре выпустит на российском рынке
+                        широкоугольный объектив «Зенитар-12», оснащённый
+                        байонетом Sony E-mount.</p>
+                </div>
+
+                <div class="footer">
+                    <div class="news-date">22.07.2020 15:48</div>
+                    <div class="news-comment">10 коментариев</div>
+                </div>
+
+            </div>
+            
+            <div class="pic">
+                <img src="https://3dnews.ru/assets/external/illustrations/2020/07/25/1016593/shvabe0.jpg" alt="Зенитар-12">
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
