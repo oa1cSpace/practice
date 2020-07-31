@@ -3,6 +3,12 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.top-pic{
+    display: grid;
+    grid-row-start: 1;
+    grid-column-start: 2;
+}
+
 .container-center {
     margin: 0 auto;
     width: 50%;
@@ -224,3 +230,4 @@ grid-row-start: auto;
 grid-gap: 10px;
 }
 }
+
