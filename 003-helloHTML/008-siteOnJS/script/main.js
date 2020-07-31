@@ -1,126 +1,76 @@
-/*
-function createDiv(divName) {
-    divName = document.createElement('div');
-    return divName;
-}
-*/
+function createElement(name, classes, innerHTML) {
 
+    let arrClases = classes.split(",").join("");
+    let Element = document.createElement(name);
+    Element.className = arrClases;
 
-function createElement2(name, classes) {
-    Element = document.createElement(name);
-    Element.classList.add(classes);
+    if (innerHTML) {
+        Element.innerHTML = innerHTML;
+    }
+
     return Element;
-}
+};
 
 
-function createElement3(name, classes, innerHTML) {
-    Element = document.createElement(name);
-    Element.classList.add(classes);
-    Element.innerHTML = innerHTML;
-    return Element;
-}
+/*const collectionData = [
+    {},
+];*/
 
 
 /*---===  NEWS  ===---*/
-const newsCont = createElement3('div', 'containerTitle', 'Новости');
-document.body.append(newsCont);
+const newsDiv = createElement('div', 'containerTitle', 'Новости');
+//const newsDiv = createElement('div', 'containerTitle');
+document.body.append(newsDiv);
 
+/*---===  CONTAINER  ===---*/
+const contDiv = createElement('div', 'container');
+document.body.append(contDiv);
 
-/* ===  PARENT CONTAINER === */
-const centerContainer = createElement2('div', 'container');
-document.body.append(centerContainer);
+/*---===  MAIN_CONTAINER   ===---*/
+const mainContDiv = createElement('div', 'mainContainer-leftBlock');
+contDiv.append(mainContDiv);
 
+/*---===  LEFT_BLOCK, TOP_PART   ===---*/
+const leftBlockTopDiv = createElement('div', 'mainContainer-leftBlock-topPart');
+mainContDiv.append(leftBlockTopDiv);
 
-/*---===  CARDS CONTAINER  ===---*/
+/*---===  LEFT_BLOCK, TOP_PART, NEWS_1   ===---*/
+const topPrtNewsDiv = createElement('div', 'news-card-top-bigPart backgroundColorOfCard mainContainer-leftBlock-topPart-marginBottom footerDownForRow');
+leftBlockTopDiv.append(topPrtNewsDiv);
 
-const cardsContainer = createElement2('div', 'mainContainer');
-centerContainer.append(cardsContainer);
+/*---===  NEWS_TEXT   ===---*/
+const newsTextDiv = createElement('div', 'news-text');
+topPrtNewsDiv.append(newsTextDiv);
 
+/*---===  NEWS_TOPIC   ===---*/
+const newsTopic = createElement('div', 'news-topic', '<h2>Xiaomi выпустит недорогой смартфон Poco C3 с процессором Helio G35</h2>');
+newsTextDiv.append(newsTopic);
 
+/*---===  NEWS_BODY   ===---*/
+const newsBodyDiv = createElement('div', 'news-body', '<p>Бренд Poco, представленный китайской компанией Xiaomi в августе 2018 года, вскоре анонсирует очередной смартфон, о чём сообщают интернет - источники.Новинка будет относиться к бюджетному ценовому сегменту. </p>');
+newsTextDiv.append(newsBodyDiv);
 
-/*
-let cont;
-let cardsContainer = createDiv(cont);
+/*---===  NEWS_FOOTER   ===---*/
+const newsFooter = createElement('div', 'news-footer');
+newsTextDiv.append(newsFooter);
 
-//console.log(cardsContainer);
+/*---===  NEWS_DATE   ===---*/
+const newsDate = createElement('div', 'news-date', '22.07.2020 15:48');
+newsFooter.append(newsDate);
 
-cardsContainer.className = 'mainContainer';
-cont = document.getElementById('mainContainer');
-document.body.insertBefore(cardsContainer, cont);
-*/
+/*---===  NEWS_COMMENTS   ===---*/
+const newsComments = createElement('div', 'news-comment', '10 коментариев');
+newsFooter.append(newsComments);
 
+/*---===  NEWS_PICTURE   ===---*/
+const newsPic1 = createElement('img', 'news-picture');
+newsPic1.src = 'pics/MOBILES.jpg';
+topPrtNewsDiv.append(newsPic1);
 
-/*---===  LEFT BLOCK  ===---*/
-const leftContainer = createElement2('div', 'mainContainer-leftBlock');
-cardsContainer.append(leftContainer);
+/*---===  LEFT_BLOCK, BOTTOM_PART   ===---*/
+const bottomPartDiv = createElement('div', 'mainContainer-leftBlock-bottomPart');
+mainContDiv.append(bottomPartDiv);
 
-/*
-let contLeft;
-let leftContainer = createDiv(contLeft);
-
-//console.log(leftContainer);
-
-leftContainer.className = 'mainContainer-leftBlock';
-contLeft = document.getElementById('mainContainer-leftBlock');
-document.body.prepend(cardsContainer, contLeft);
-*/
-
-
-/*---===  LEFT BLOCK, TOP PART  ===--->*/
-const leftTopCont = createElement2('div', 'mainContainer-leftBlock-topPart');
-leftContainer.append(leftTopCont);
-
-/*
-let contLeftTop;
-let leftTopCont = createDiv(contLeftTop);
-
-//console.log(leftTopCont);
-
-leftTopCont.className = 'mainContainer-leftBlock-topPart';
-contLeftTop = document.getElementById('mainContainer-leftBlock-topPart');
-document.body.prepend(leftContainer, contLeftTop);
-*/
-
-
-/*<!--LEFT BLOCK, TOP PART, NEWS 1-->*/
-const topCardCont = createElement2('div', 'news-card-top-bigPart backgroundColorOfCard mainContainer-leftBlock-topPart-marginBottom footerDownForRow');
-leftTopCont.append(topCardCont);
-/*
-let topCard;
-let topCardCont = createDiv(topCard);
-
-//console.log(topCardCont);
-
-topCardCont.className = 'news-card-top-bigPart backgroundColorOfCard mainContainer-leftBlock-topPart-marginBottom footerDownForRow';
-topCard = document.getElementById('news-card-top-bigPart backgroundColorOfCard mainContainer-leftBlock-topPart-marginBottom footerDownForRow');
-document.body.prepend(topCardCont, topCard);
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*---===  LEFT_BLOCK, BOTTOM_PART, BIG_LEFT_PART   ===---*/
+const bigLeftDiv = createElement('div', 'mainContainer-leftBlock-bottomPart-bigLeftPart mainContainer-leftBlock-bottomPart-bigLeftPart-marginRight');
+bottomPartDiv.append(bigLeftDiv);
