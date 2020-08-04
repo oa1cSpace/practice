@@ -1,0 +1,115 @@
+
+
+body {
+  margin-top: 10%;
+  background: linear-gradient(to right, #3e2b96, #74ebd5);
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+}
+
+
+.registrationField__input {
+  outline: none;
+  border: none;
+  font-weight: 100;
+
+}
+
+.registrationField__legend {
+  color: #808080;
+  width: auto;
+  font-size: 10px;
+}
+
+.fieldset {
+  border-color: #e3e3e3;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+.registrationForm__title {
+  font-weight: bold;
+  text-align: center;
+  color: #333333;
+}
+
+.registrationForm__text {
+  font-weight: 400;
+  text-align: center;
+  color: #666666;
+  font-size: 16px;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-bottom: 7%;
+}
+
+.registrationForm {
+  border-radius: 10px;
+  background-color: white;
+  width: 450px;
+  padding: 30px;
+  margin: 0 auto;
+}
+
+.registrationField {
+  margin-bottom: 17px;
+}
+
+.registrationField__fname {
+  float: left;
+  margin-right: 22px;
+
+}
+
+.registrationField__lname {
+  width: 42%;
+}
+
+.btn:after {
+  content: '';
+  display: table;
+  width: 100%;
+  clear: both;
+}
+
+.btn__Registration {
+  width: 130px;
+  padding: 10px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 400;
+  display: inline-block;
+  float: right;
+  margin-top: 20px;
+  background-color: #4eab40;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn__Clear {
+  width: 80px;
+  padding: 10px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  display: inline-block;
+  font-weight: 400;
+  margin-top: 20px;
+  background-color: #3F7DBF;
+  border: none;
+  border-radius: 5px;
+}
+
+
+.border{
+  border: 2px;
+}
+
+.padding-field{
+  padding: 5px;
+}
+
+
