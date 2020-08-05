@@ -7,26 +7,32 @@ class NameComponent extends React.Component {
         const fName = this.props.fName;
         const lName = this.props.lName;
         const type = this.props.type;
-        const placeholder1 = this.props.placeholder1;
-        const placeholder2 = this.props.placeholder2;
+        const patternName = this.props.patternName;
+        const placeholderFName = this.props.placeholderFName;
+        const placeholderLName = this.props.placeholderLName;
 
         return (
             <div>
-                <fieldset className="fieldset registrationField__fname border">
-                    <legend className="registrationField__legend ml-2">{fName}</legend>
-                    <input type={type} className="registrationField__input fname"
-                           pattern="^[A-Za-zА-Яа-яЁё]{4,60}"
-                           placeholder={placeholder1} required/>
-                </fieldset>
+                <div className=" d-flex clm-2 justify-content-between">
 
-                <fieldset className="fieldset registrationField__lname border">
-                    <legend className="registrationField__legend ml-2">{lName}</legend>
-                    <input type={type}
-                           className="registrationField__input lname"
-                           pattern="^[A-Za-zА-Яа-яЁё]{4,60}"
-                           placeholder={placeholder2}
-                           required/>
-                </fieldset>
+                    <fieldset className="fieldset  border fname">
+                        <legend className="registrationField__legend ml-2">{fName}</legend>
+                        <input type={type} className="registrationField__input "
+                               pattern={patternName}
+                               placeholder={placeholderFName} required/>
+                    </fieldset>
+
+                    <fieldset className="fieldset  border lname">
+                        <legend className="registrationField__legend ml-2">{lName}</legend>
+                        <input type={type}
+                               className="registrationField__input "
+                               pattern={patternName}
+                               placeholder={placeholderLName}
+                               required/>
+                    </fieldset>
+
+                </div>
+
             </div>
         );
     }

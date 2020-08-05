@@ -8,6 +8,7 @@ class EmaileComponent extends React.Component{
 
         const name = this.props.name;
         const type = this.props.type;
+        const patternEmail = this.props.patternEmail;
         const placeholder = this.props.placeholder;
 
         return (
@@ -15,7 +16,8 @@ class EmaileComponent extends React.Component{
                     <legend className="registrationField__legend ml-2">{name}</legend>
                     <input type={type}
                            className="registrationField__input"
-                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                         /*  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"*/
+                           pattern={patternEmail}
                            placeholder={placeholder}
                            required/>
                 </fieldset>

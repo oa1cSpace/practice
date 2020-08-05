@@ -10,9 +10,9 @@ class BtnComponent extends React.Component {
         const typeBtn2 = this.props.typeBtn2;
 
         return (
-            <div>
-                <button className="btn__Registration" type={typeBtn1}>{textBtn1}</button>
-                <button className="btn__Clear " type={typeBtn2}>{textBtn2}</button>
+            <div className='d-flex justify-content-between mt-3'>
+                <button className="btn btn-outline-danger" type={typeBtn2}>{textBtn2}</button>
+                <button className="btn btn-outline-success" type={typeBtn1}>{textBtn1}</button>
             </div>
         );
     }

@@ -11,14 +11,13 @@ body {
 .registrationField__input {
   outline: none;
   border: none;
-  font-weight: 100;
-
 }
 
 .registrationField__legend {
-  color: #808080;
+
+  color: #b0b0b0;
   width: auto;
-  font-size: 10px;
+  font-size: 15px;
 }
 
 .fieldset {
@@ -55,61 +54,23 @@ body {
   margin-bottom: 17px;
 }
 
-.registrationField__fname {
-  float: left;
-  margin-right: 22px;
-
+.fname{
+  width: 47%;
 }
 
-.registrationField__lname {
-  width: 42%;
-}
-
-.btn:after {
-  content: '';
-  display: table;
-  width: 100%;
-  clear: both;
-}
-
-.btn__Registration {
-  width: 130px;
-  padding: 10px;
-  text-decoration: none;
-  text-align: center;
-  font-size: 16px;
-  color: #fff;
-  font-weight: 400;
-  display: inline-block;
-  float: right;
-  margin-top: 20px;
-  background-color: #4eab40;
-  border: none;
-  border-radius: 5px;
-}
-
-.btn__Clear {
-  width: 80px;
-  padding: 10px;
-  text-decoration: none;
-  text-align: center;
-  font-size: 16px;
-  color: #fff;
-  display: inline-block;
-  font-weight: 400;
-  margin-top: 20px;
-  background-color: #3F7DBF;
-  border: none;
-  border-radius: 5px;
-}
-
-
-.border{
-  border: 2px;
+.lname{
+  width: 47%;
 }
 
 .padding-field{
   padding: 5px;
 }
 
+fieldset{
+  margin-bottom: 10px;
+}
+
+input{
+  margin: 5px;
+}
 

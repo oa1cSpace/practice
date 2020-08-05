@@ -12,7 +12,6 @@ class PasswordComponent extends React.Component {
                 <legend className="registrationField__legend ml-2">{name}</legend>
                 <input type={type}
                        className="registrationField__input"
-                       pattern="^[a-zA-Z0-9]+${4,60}"
                        required/>
             </fieldset>
 

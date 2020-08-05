@@ -6,6 +6,7 @@ class LoginComponent extends React.Component {
 
         const name = this.props.name;
         const type = this.props.type;
+        const patternLogin = this.props.patternLogin;
         const placeholder = this.props.placeholder;
 
         return (
@@ -13,7 +14,7 @@ class LoginComponent extends React.Component {
                 <legend className="registrationField__legend ml-2">{name}</legend>
                 <input type={type}
                        className="registrationField__input"
-                       pattern="^[a-zA-Z]+${4,60}"
+                       pattern={patternLogin}
                        placeholder={placeholder}
                        required/>
             </fieldset>
