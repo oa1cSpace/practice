@@ -19,6 +19,7 @@ export default class RegistrationContainer extends React.Component {
             errors: {}
         }
     };
+
     handleChange = (e) => {
         const {target} = e;
         const {fields} = this.state;
