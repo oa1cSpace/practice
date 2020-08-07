@@ -1,76 +1,92 @@
 
-
 body {
-  margin-top: 10%;
-  background: linear-gradient(to right, #3e2b96, #74ebd5);
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
+    margin-top: 10%;
+    background: linear-gradient(to right, #3e2b96, #74ebd5);
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
 }
 
-
 .registrationField__input {
-  outline: none;
-  border: none;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    width: 96%;
 }
 
 .registrationField__legend {
-
-  color: #b0b0b0;
-  width: auto;
-  font-size: 15px;
+    color: #b0b0b0;
+    width: auto;
+    font-size: 15px;
 }
 
 .fieldset {
-  border-color: #e3e3e3;
-  border-style: solid;
-  border-radius: 4px;
+    border-color: #e3e3e3;
+    border-style: solid;
+    border-radius: 4px;
 }
 
 .registrationForm__title {
-  font-weight: bold;
-  text-align: center;
-  color: #333333;
+    font-weight: bold;
+    text-align: center;
+    color: #333333;
 }
 
 .registrationForm__text {
-  font-weight: 400;
-  text-align: center;
-  color: #666666;
-  font-size: 16px;
-  padding-left: 10%;
-  padding-right: 10%;
-  margin-bottom: 7%;
+    font-weight: 400;
+    text-align: center;
+    color: #666666;
+    font-size: 15px;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-bottom: 7%;
 }
 
 .registrationForm {
-  border-radius: 10px;
-  background-color: white;
-  width: 450px;
-  padding: 30px;
-  margin: 0 auto;
+    border-radius: 10px;
+    background-color: white;
+    width: 465px;
+    padding: 30px;
+    margin: 0 auto;
 }
 
 .registrationField {
-  margin-bottom: 17px;
+    margin-bottom: 17px;
 }
 
-.fname{
-  width: 47%;
+.fname {
+    /*width: 47%;*/
 }
 
-.lname{
-  width: 47%;
+.lname {
+    width: 47%;
 }
 
-.padding-field{
-  padding: 5px;
+.padding-field {
+    padding: 5px;
 }
 
-fieldset{
-  margin-bottom: 10px;
+fieldset {
+    margin-bottom: 10px;
 }
 
-input{
-  margin: 5px;
+input {
+    margin-left: 5px;
+    margin-bottom: 7px;
 }
 
+
+
+
+
+
+@media (max-width: 576px) {
+
+}
+
+@media (max-width: 991.98px) {
+
+}
+
+@media (max-width: 1024px) {
+
+}

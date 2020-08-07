@@ -1,8 +1,7 @@
 import React from 'react';
-
 import '../App.css';
 
-class BtnLogin extends React.Component{
+class BtnLogin extends React.Component {
     render() {
 
         const textBtnLogin = this.props.textBtnLogin;
@@ -14,7 +13,6 @@ class BtnLogin extends React.Component{
             </div>
         );
     }
-
 }
 
 export default BtnLogin;

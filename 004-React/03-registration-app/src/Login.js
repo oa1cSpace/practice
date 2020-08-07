@@ -10,53 +10,51 @@ import './App.css';
 import LoginComponent from "./Components/LoginComponent";
 import PasswordComponent from "./Components/PasswordComponent";
 import BtnBackHome from "./Components/BtnBackHome";
-import BtnComponent from "./Components/BtnComponent";
+import BtnComponents from "./Components/BtnComponents";
 
-class Login extends React.Component {
+export default class Login extends React.Component {
     render() {
-
         return (
+            <div>
+                <form className="registrationForm">
+                    <h1 className="registrationForm__title">Вход</h1>
+                    <LoginComponent
+                        name='Логин'
+                        type='text'
+                        patternLogin='^[a-zA-Z]+${4,60}'
+                        placeholder='Логин'
+                    />
 
-                <div >
-                    <form className="registrationForm" action="index.html">
-                        <h1 className="registrationForm__title">Вход</h1>
-                        <LoginComponent
-                            name='Логин'
-                            type='text'
-                            patternLogin='^[a-zA-Z]+${4,60}'
-                            placeholder='Логин'
+                    <PasswordComponent
+                        name='Пароль'
+                        type='password'
+                    />
+
+                    <div className='d-flex justify-content-between mt-3'>
+                        <BtnComponents
+                            textBtn="Сброс"
+                            className='btn btn-outline-danger'
+                            type='button'
+                            onClick={this.resetForm}
                         />
 
-                        <PasswordComponent
-                            name='Пароль'
-                            type='password'
+                        <BtnComponents
+                            textBtn="Вход"
+                            className='btn btn-outline-success'
+                            type='button'
                         />
-
-
-                        <BtnComponent
-                            textBtn1='Логин'
-                            typeBtn1='submit'
-
-                            textBtn2='Сброс'
-                            typeBtn2='reset'
-                        />
-
-
-                    </form>
-
-                    <div className='form group d-flex justify-content-center'>
-                        <Link to='registration'>
-                            <BtnBackHome
-                                textBtnBackHome='Я ж не зарегистрирован! Регистрация'
-                                typeBtnBackHome='button'
-                            />
-                        </Link>
                     </div>
+                </form>
 
+                <div className='form group d-flex justify-content-center'>
+                    <Link to='registration'>
+                        <BtnBackHome
+                            textBtnBackHome='Я ж не зарегистрирован! Регистрация'
+                            typeBtnBackHome='button'
+                        />
+                    </Link>
                 </div>
-
+            </div>
         );
     }
 }
-
-export default Login;

@@ -2,7 +2,7 @@ import React from 'react';
 
 import '../App.css';
 
-class BtnBackHome extends React.Component{
+class BtnBackHome extends React.Component {
     render() {
 
         const textBtnBackHome = this.props.textBtnBackHome;
@@ -14,7 +14,6 @@ class BtnBackHome extends React.Component{
             </div>
         );
     }
-
 }
 
 export default BtnBackHome;

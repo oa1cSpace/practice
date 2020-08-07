@@ -3,37 +3,33 @@ import '../App.css';
 
 class NameComponent extends React.Component {
     render() {
-
         const fName = this.props.fName;
-        const lName = this.props.lName;
         const type = this.props.type;
         const patternName = this.props.patternName;
-        const placeholderFName = this.props.placeholderFName;
-        const placeholderLName = this.props.placeholderLName;
+        const placeholderName = this.props.placeholderName;
+        const onChange = this.props.onChange;
+        const value = this.props.value;
+        const name = this.props.name;
+        const form = this.props.form;
 
         return (
-            <div>
-                <div className=" d-flex clm-2 justify-content-between">
-
+                <div className=" d-flex clm-2 justify-content-between ">
                     <fieldset className="fieldset  border fname">
                         <legend className="registrationField__legend ml-2">{fName}</legend>
-                        <input type={type} className="registrationField__input "
-                               pattern={patternName}
-                               placeholder={placeholderFName} required/>
+                        <input
+                            fName={fName}
+                            type={type}
+                            className="registrationField__input"
+                            patternName={patternName}
+                            placeholderName={placeholderName}
+                            onChange={onChange}
+                            value={value}
+                            name={name}
+                            form={form}
+                            required
+                        />
                     </fieldset>
-
-                    <fieldset className="fieldset  border lname">
-                        <legend className="registrationField__legend ml-2">{lName}</legend>
-                        <input type={type}
-                               className="registrationField__input "
-                               pattern={patternName}
-                               placeholder={placeholderLName}
-                               required/>
-                    </fieldset>
-
                 </div>
-
-            </div>
         );
     }
 }
