@@ -9,6 +9,8 @@ import BtnComponents from "../Components/BtnComponents";
 import {Link} from "react-router-dom";
 import BtnLogin from "../Components/BtnLogin";
 
+
+
 export default class RegistrationContainer extends React.Component {
     constructor() {
         super();
