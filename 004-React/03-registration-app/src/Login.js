@@ -67,6 +67,7 @@ export default class Login extends React.Component {
                 break;
         }
 
+
         /*if (!fields["login"]) {
             formIsValid = false;
             errors["login"] = "*Введите логин.";
