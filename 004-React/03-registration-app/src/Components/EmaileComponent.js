@@ -22,7 +22,7 @@ class EmaileComponent extends React.Component {
                        value={value}
                        onChange={onChange}
                        form={form}
-                       required/>
+                />
             </fieldset>
         );
     }

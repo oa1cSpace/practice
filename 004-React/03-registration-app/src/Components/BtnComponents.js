@@ -3,12 +3,13 @@ import '../App.css';
 
 class BtnComponents extends React.Component {
     render() {
-        const textBtn = this.props.textBtn;
-        const typeBtn = this.props.typeBtn;
+        const text = this.props.text;
+        const type = this.props.type;
         const onClick = this.props.onClick;
         const className = this.props.className;
+        const value = this.props.value;
         return (
-            <button className={className} typeBtn={typeBtn} onClick={onClick}>{textBtn}</button>
+            <button className={className} type={type} onClick={onClick} value={value}>{text}</button>
         );
     }
 }

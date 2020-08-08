@@ -18,7 +18,7 @@ class PasswordComponent extends React.Component {
                        value={value}
                        onChange={onChange}
                        form={form}
-                       required/>
+                />
             </fieldset>
         );
     }

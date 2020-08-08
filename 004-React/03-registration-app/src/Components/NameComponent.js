@@ -3,10 +3,10 @@ import '../App.css';
 
 class NameComponent extends React.Component {
     render() {
-        const fName = this.props.fName;
+        const text = this.props.text;
         const type = this.props.type;
-        const patternName = this.props.patternName;
-        const placeholderName = this.props.placeholderName;
+        const pattern = this.props.pattern;
+        const placeholder = this.props.placeholder;
         const onChange = this.props.onChange;
         const value = this.props.value;
         const name = this.props.name;
@@ -15,18 +15,17 @@ class NameComponent extends React.Component {
         return (
                 <div className=" d-flex clm-2 justify-content-between ">
                     <fieldset className="fieldset  border fname">
-                        <legend className="registrationField__legend ml-2">{fName}</legend>
+                        <legend className="registrationField__legend ml-2">{text}</legend>
                         <input
-                            fName={fName}
+                            text={text}
                             type={type}
                             className="registrationField__input"
-                            patternName={patternName}
-                            placeholderName={placeholderName}
+                            pattern={pattern}
+                            placeholder={placeholder}
                             onChange={onChange}
                             value={value}
                             name={name}
                             form={form}
-                            required
                         />
                     </fieldset>
                 </div>

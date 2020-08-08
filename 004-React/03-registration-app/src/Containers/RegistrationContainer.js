@@ -9,8 +9,6 @@ import BtnComponents from "../Components/BtnComponents";
 import {Link} from "react-router-dom";
 import BtnLogin from "../Components/BtnLogin";
 
-
-
 export default class RegistrationContainer extends React.Component {
     constructor() {
         super();
@@ -43,6 +41,7 @@ export default class RegistrationContainer extends React.Component {
             this.setState({fields: fields});
         }
     }
+
     validateForm() {
         let fields = this.state.fields;
         let errors = {};
@@ -52,7 +51,7 @@ export default class RegistrationContainer extends React.Component {
             formIsValid = false;
             errors["name"] = "*Введите имя.";
         } else if (typeof fields["name"] !== "undefined") {
-            if (!fields["name"].match(/^[a-zA-Z ]*$/)) {
+            if (!fields["name"].match('^[A-Za-zА-Яа-яЁё]{2,60}')) {
                 formIsValid = false;
                 errors["name"] = "*Неверное имя.";
             }
@@ -62,7 +61,7 @@ export default class RegistrationContainer extends React.Component {
             formIsValid = false;
             errors["surname"] = "*Введите фамилию.";
         } else if (typeof fields["surname"] !== "undefined") {
-            if (!fields["surname"].match(/^[a-zA-Z ]*$/)) {
+            if (!fields["surname"].match('^[A-Za-zА-Яа-яЁё]{2,60}')) {
                 formIsValid = false;
                 errors["surname"] = "*Неверная фамилия.";
             }
@@ -73,7 +72,7 @@ export default class RegistrationContainer extends React.Component {
             errors["email"] = "*Введите e-mail.";
         } else if (typeof fields["email"] !== "undefined") {
             //regular expression for email validation
-            let pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+            let pattern = new RegExp('^[A-Za-zА-Яа-яЁё]{4,60}');
             if (!pattern.test(fields["email"])) {
                 formIsValid = false;
                 errors["email"] = "*Введите валидный e-mail.";
@@ -84,7 +83,7 @@ export default class RegistrationContainer extends React.Component {
             formIsValid = false;
             errors["login"] = "*Введите логин.";
         } else if (typeof fields["login"] !== "undefined") {
-            if (!fields["login"].match(/^[a-zA-Z0-9]*$/)) {
+            if (!fields["login"].match('^[A-Za-zА-Яа-яЁё]{4,60}')) {
                 formIsValid = false;
                 errors["login"] = "*Неверный логин";
             }
@@ -94,7 +93,7 @@ export default class RegistrationContainer extends React.Component {
             formIsValid = false;
             errors["password"] = "*Введите пароль.";
         } else if (typeof fields["password"] !== "undefined") {
-            if (!fields["password"].match(/[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/)) {
+            if (!fields["password"].match('^[A-Za-zА-Яа-яЁё]{4,60}')) {
                 formIsValid = false;
                 errors["password"] = "*Введите сложный пароль.";
             }
@@ -106,11 +105,16 @@ export default class RegistrationContainer extends React.Component {
         return formIsValid;
     }
 
+    resetForm = () => {
+        this.setState({fields: {name: "", surname: "", email: "", login: "", password: ""}});
+    }
+
     render() {
         const {fields, errors} = this.state;
         return (
             <div>
-                <form className="registrationForm" name="userRegistrationForm"
+                <form className="registrationForm"
+                      name="userRegistrationForm"
                       onSubmit={this.submituserRegistrationForm}>
                     <HeaderComponent
                         className="registrationForm__title"
@@ -120,11 +124,11 @@ export default class RegistrationContainer extends React.Component {
                     <div className=" d-flex clm-2 justify-content-between">
                         <div>
                             <NameComponent
-                                fName='Имя'
+                                text='Имя'
                                 type='text'
                                 className="registrationField__input"
-                                patternName='^[A-Za-zА-Яа-яЁё]{4,60}'
-                                placeholderName='Имя'
+                                pattern='^[A-Za-zА-Яа-яЁё]{2,60}'
+                                placeholder='Имя'
                                 onChange={this.handleChange}
                                 value={this.state.fields.name}
                                 name='name'
@@ -135,11 +139,11 @@ export default class RegistrationContainer extends React.Component {
                         </div>
                         <div>
                             <NameComponent
-                                fName='Фамилия'
+                                text='Фамилия'
                                 type='text'
                                 className="registrationField__input"
-                                patternName='^[A-Za-zА-Яа-яЁё]{4,60}'
-                                placeholderName='Фамилия'
+                                pattern='^[A-Za-zА-Яа-яЁё]{2,60}'
+                                placeholder='Фамилия'
                                 onChange={this.handleChange}
                                 value={this.state.fields.surname}
                                 name='surname'
@@ -181,16 +185,17 @@ export default class RegistrationContainer extends React.Component {
 
                     <div className='d-flex justify-content-between mt-3'>
                         <BtnComponents
-                            textBtn="Сброс"
+                            text="Сброс"
                             className='btn btn-outline-danger'
-                            type='button'
+                            value='reset'
                             onClick={this.resetForm}
                         />
 
                         <BtnComponents
-                            textBtn="Регистрация"
+                            text="Регистрация"
                             className='btn btn-outline-success'
-                            type='button'
+                            value='submit'
+                            type='submit'
                         />
                     </div>
                 </form>
