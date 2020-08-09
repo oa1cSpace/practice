@@ -24,6 +24,7 @@ export default class Login extends React.Component {
     handleChange = (e) => {
         const {target} = e;
         const {fields} = this.state;
+
         this.setState({
             fields: {
                 ...fields,
@@ -31,7 +32,6 @@ export default class Login extends React.Component {
             }
         });
     }
-
     submituserRegistrationForm = (e) => {
         e.preventDefault();
         if (this.validateForm()) {
@@ -40,7 +40,6 @@ export default class Login extends React.Component {
             fields["password"] = "";
             this.setState({fields: fields});
         }
-        e.stopPropagation();
     }
 
     validateForm() {
@@ -48,28 +47,46 @@ export default class Login extends React.Component {
         let errors = {};
         let formIsValid = true;
 
+        switch (true) {
+            case !fields["login"]:
+                formIsValid = false;
+                errors["login"] = "*Введите логин.";
+                break;
+            case !fields["login"].match('^[A-Za-zА-Яа-яЁё]{4,60}'):
+                formIsValid = false;
+                errors["login"] = "*Неверный логин";
+                break;
+
+            case !fields["password"]:
+                formIsValid = false;
+                errors["password"] = "*Введите пароль.";
+                break;
+            case !fields["password"].match('^[A-Za-zА-Яа-яЁё]{4,60}'):
+                formIsValid = false;
+                errors["password"] = "*Введите сложный пароль.";
+                break;
+        }
+
         /*if (!fields["login"]) {
-          /!*  formIsValid = false;*!/
+            formIsValid = false;
             errors["login"] = "*Введите логин.";
         } else if (typeof fields["login"] !== "undefined") {
-            if (!fields["login"].match('^[A-Za-zА-Яа-яЁё0-9]{4,60}')) {
-               /!* formIsValid = false;*!/
+            if (!fields["login"].match('^[A-Za-zА-Яа-яЁё]{4,60}')) {
+                formIsValid = false;
                 errors["login"] = "*Неверный логин";
             }
         }*/
-
-        !fields["login"] ? errors["login"]="*Введите логин." : !fields["login"].match('^[A-Za-zА-Яа-яЁё0-9]{4,60}') ? errors["login"]="*Неверный логин" : formIsValid=false;
-        !fields["password"] ? errors["password"]="*Введите пароль." : !fields["password"].match('^[A-Za-zА-Яа-яЁё0-9]{4,60}') ? errors["password"]="*Пароль слишком прост, угроза компроментации." : formIsValid=false;
 
         /*if (!fields["password"]) {
             formIsValid = false;
             errors["password"] = "*Введите пароль.";
         } else if (typeof fields["password"] !== "undefined") {
-            if (!fields["password"].match('^[A-Za-zА-Яа-яЁё0-9]{4,60}')) {
+            if (!fields["password"].match('^[A-Za-zА-Яа-яЁё]{4,60}')) {
                 formIsValid = false;
-                errors["password"] = "*Пароль слишком прост, угроза компроментации.";
+                errors["password"] = "*Введите сложный пароль.";
             }
         }*/
+
         this.setState({
             errors: errors
         });
@@ -87,25 +104,24 @@ export default class Login extends React.Component {
                 <form className="registrationForm" onSubmit={this.submituserRegistrationForm}>
                     <h1 className="registrationForm__title">Вход</h1>
                     <LoginComponent
-                        text='Логин'
+                        name='Логин'
                         type='text'
                         placeholder='Логин'
                         value={this.state.fields.login}
                         onChange={this.handleChange}
-                        name='login'
                         form='login'
                     />
                     <div className="errorMsg">{this.state.errors.login}</div>
 
                     <PasswordComponent
-                        text='Пароль'
+                        name='Пароль'
                         type='password'
                         value={this.state.fields.password}
                         onChange={this.handleChange}
-                        name='password'
                         form='password'
                     />
                     <div className="errorMsg">{this.state.errors.password}</div>
+
                     <div className='d-flex justify-content-between mt-3'>
                         <BtnComponents
                             text="Сброс"
