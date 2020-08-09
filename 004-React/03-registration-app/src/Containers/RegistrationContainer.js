@@ -17,11 +17,9 @@ export default class RegistrationContainer extends React.Component {
             errors: {}
         }
     };
-
     handleChange = (e) => {
         const {target} = e;
         const {fields} = this.state;
-
         this.setState({
             fields: {
                 ...fields,
@@ -41,13 +39,12 @@ export default class RegistrationContainer extends React.Component {
             this.setState({fields: fields});
         }
     }
-
     validateForm() {
         let fields = this.state.fields;
         let errors = {};
         let formIsValid = true;
 
-        if (!fields["name"]) {
+       /* if (!fields["name"]) {
             formIsValid = false;
             errors["name"] = "*Введите имя.";
         } else if (typeof fields["name"] !== "undefined") {
@@ -55,9 +52,10 @@ export default class RegistrationContainer extends React.Component {
                 formIsValid = false;
                 errors["name"] = "*Неверное имя.";
             }
-        }
+        }*/
+        !fields["name"] ? errors["name"]="*Введите имя." : !fields["name"].match('^[A-Za-zА-Яа-яЁё]{2,60}') ? errors["name"]="*Неверное имя." : formIsValid=false;
 
-        if (!fields["surname"]) {
+        /*if (!fields["surname"]) {
             formIsValid = false;
             errors["surname"] = "*Введите фамилию.";
         } else if (typeof fields["surname"] !== "undefined") {
@@ -65,39 +63,43 @@ export default class RegistrationContainer extends React.Component {
                 formIsValid = false;
                 errors["surname"] = "*Неверная фамилия.";
             }
-        }
+        }*/
+        !fields["surname"] ? errors["surname"]="*Введите фамилию." : !fields["surname"].match('^[A-Za-zА-Яа-яЁё]{2,60}') ? errors["surname"]="*Неверная фамилия." : formIsValid=false;
 
-        if (!fields["email"]) {
+        /*if (!fields["email"]) {
             formIsValid = false;
             errors["email"] = "*Введите e-mail.";
         } else if (typeof fields["email"] !== "undefined") {
             //regular expression for email validation
-            let pattern = new RegExp('^[A-Za-zА-Яа-яЁё]{4,60}');
+            let pattern = new RegExp('[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$');
             if (!pattern.test(fields["email"])) {
                 formIsValid = false;
                 errors["email"] = "*Введите валидный e-mail.";
             }
-        }
+        }*/
+        !fields["email"] ? errors["email"]="*Введите e-mail." : !fields["email"].match('[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$') ? errors["email"]="*Введите валидный e-mail." : formIsValid=false;
 
-        if (!fields["login"]) {
-            formIsValid = false;
-            errors["login"] = "*Введите логин.";
-        } else if (typeof fields["login"] !== "undefined") {
-            if (!fields["login"].match('^[A-Za-zА-Яа-яЁё]{4,60}')) {
-                formIsValid = false;
-                errors["login"] = "*Неверный логин";
-            }
-        }
+        /* if (!fields["login"]) {
+             formIsValid = false;
+             errors["login"] = "*Введите логин.";
+         } else if (typeof fields["login"] !== "undefined") {
+             if (!fields["login"].match('^[A-Za-zА-Яа-яЁё0-9]{4,60}')) {
+                 formIsValid = false;
+                 errors["login"] = "*Неверный логин";
+             }
+         }*/
+        !fields["login"] ? errors["login"]="*Введите логин." : !fields["login"].match('^[A-Za-zА-Яа-яЁё0-9]{4,60}') ? errors["login"]="*Неверный логин" : formIsValid=false;
 
-        if (!fields["password"]) {
+        /*if (!fields["password"]) {
             formIsValid = false;
             errors["password"] = "*Введите пароль.";
         } else if (typeof fields["password"] !== "undefined") {
-            if (!fields["password"].match('^[A-Za-zА-Яа-яЁё]{4,60}')) {
+            if (!fields["password"].match('^[A-Za-zА-Яа-яЁё0-9]{4,60}')) {
                 formIsValid = false;
                 errors["password"] = "*Введите сложный пароль.";
             }
-        }
+        }*/
+        !fields["password"] ? errors["password"]="*Введите пароль." : !fields["password"].match('^[A-Za-zА-Яа-яЁё0-9]{4,60}') ? errors["password"]="*Пароль слишком прост, угроза компроментации." : formIsValid=false;
 
         this.setState({
             errors: errors
@@ -127,7 +129,7 @@ export default class RegistrationContainer extends React.Component {
                                 text='Имя'
                                 type='text'
                                 className="registrationField__input"
-                                pattern='^[A-Za-zА-Яа-яЁё]{2,60}'
+                               /* pattern='^[A-Za-zА-Яа-яЁё]{2,60}'*/
                                 placeholder='Имя'
                                 onChange={this.handleChange}
                                 value={this.state.fields.name}
@@ -142,7 +144,7 @@ export default class RegistrationContainer extends React.Component {
                                 text='Фамилия'
                                 type='text'
                                 className="registrationField__input"
-                                pattern='^[A-Za-zА-Яа-яЁё]{2,60}'
+                                /*pattern='^[A-Za-zА-Яа-яЁё]{2,60}'*/
                                 placeholder='Фамилия'
                                 onChange={this.handleChange}
                                 value={this.state.fields.surname}
@@ -155,6 +157,7 @@ export default class RegistrationContainer extends React.Component {
                     </div>
 
                     <EmaileComponent
+                        text='Email'
                         name='Email'
                         type='email'
                         placeholder='example@email.com'
@@ -165,20 +168,22 @@ export default class RegistrationContainer extends React.Component {
                     <div className="errorMsg">{this.state.errors.email}</div>
 
                     <LoginComponent
-                        name='Логин'
+                        text='Логин'
                         type='text'
                         placeholder='Логин'
                         value={this.state.fields.login}
                         onChange={this.handleChange}
+                        name='login'
                         form='login'
                     />
                     <div className="errorMsg">{this.state.errors.login}</div>
 
                     <PasswordComponent
-                        name='Пароль'
+                        text='Пароль'
                         type='password'
                         value={this.state.fields.password}
                         onChange={this.handleChange}
+                        name='password'
                         form='password'
                     />
                     <div className="errorMsg">{this.state.errors.password}</div>

@@ -3,9 +3,9 @@ import '../App.css';
 
 class EmaileComponent extends React.Component {
     render() {
+        const text = this.props.text;
         const name = this.props.name;
         const type = this.props.type;
-        const patternEmail = this.props.patternEmail;
         const placeholder = this.props.placeholder;
         const value = this.props.value;
         const onChange = this.props.onChange;
@@ -13,14 +13,14 @@ class EmaileComponent extends React.Component {
 
         return (
             <fieldset className="fieldset border">
-                <legend className="registrationField__legend ml-2">{name}</legend>
+                <legend className="registrationField__legend ml-2">{text}</legend>
                 <input name='email'
-                       type={type}
+                       text={text}
                        className="registrationField__input"
-                       pattern={patternEmail}
                        placeholder={placeholder}
                        value={value}
                        onChange={onChange}
+                       type={type}
                        form={form}
                 />
             </fieldset>
