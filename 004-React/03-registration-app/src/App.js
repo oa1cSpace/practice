@@ -5,11 +5,12 @@ import {
     Route,
     Link
 } from "react-router-dom";
-import './App.css';
+
 import './Containers/RegistrationContainer';
 import RegistrationContainer from "./Containers/RegistrationContainer";
 import './Login'
 import Login from "./Login";
+import MainPage from "./MainPage";
 
 class App extends React.Component {
     render() {
@@ -17,6 +18,7 @@ class App extends React.Component {
             <Router>
                 <Route exact={true} path='/registration' component={RegistrationContainer}/>
                 <Route exact={true} path='/login' component={Login}/>
+                <Route exact={true} path='/main_page' component={MainPage}/>
             </Router>
         );
     }

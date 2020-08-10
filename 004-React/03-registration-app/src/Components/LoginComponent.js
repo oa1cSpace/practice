@@ -1,5 +1,4 @@
 import React from 'react';
-import '../App.css';
 
 class LoginComponent extends React.Component {
     render() {
@@ -16,8 +15,8 @@ class LoginComponent extends React.Component {
             <fieldset className="fieldset border">
                 <legend className="registrationField__legend ml-2">{text}</legend>
                 <input
-                       text='text'
-                       name='login'
+                       text={text}
+                       name={name}
                        type={type}
                        className="registrationField__input"
                        placeholder={placeholder}

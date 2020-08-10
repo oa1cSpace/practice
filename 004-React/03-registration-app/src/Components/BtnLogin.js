@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css';
+
 
 class BtnLogin extends React.Component {
     render() {

@@ -6,7 +6,7 @@ import {
     Link
 } from "react-router-dom";
 
-import './App.css';
+
 import LoginComponent from "./Components/LoginComponent";
 import PasswordComponent from "./Components/PasswordComponent";
 import BtnBackHome from "./Components/BtnBackHome";
@@ -32,6 +32,7 @@ export default class Login extends React.Component {
             }
         });
     }
+
     submituserRegistrationForm = (e) => {
         e.preventDefault();
         if (this.validateForm()) {
@@ -42,56 +43,30 @@ export default class Login extends React.Component {
         }
     }
 
-    validateForm() {
+    validateForm = (e) => {
         let fields = this.state.fields;
         let errors = {};
-        let formIsValid = true;
+        /* eslint-disable no-unused-expressions */
 
-        switch (true) {
-            case !fields["login"]:
-                formIsValid = false;
-                errors["login"] = "*Введите логин.";
-                break;
-            case !fields["login"].match('^[A-Za-zА-Яа-яЁё]{4,60}'):
-                formIsValid = false;
-                errors["login"] = "*Неверный логин";
-                break;
+        !fields["login"]
+            ? errors["login"]="Пожалуйста, введите логин."
+            : !fields["login"].match('^[A-Za-zА-Яа-яЁё0-9]{4,60}')
+            ? errors["login"]="Напишите правильный логин."
+            : null;
 
-            case !fields["password"]:
-                formIsValid = false;
-                errors["password"] = "*Введите пароль.";
-                break;
-            case !fields["password"].match('^[A-Za-zА-Яа-яЁё]{4,60}'):
-                formIsValid = false;
-                errors["password"] = "*Введите сложный пароль.";
-                break;
-        }
-
-        /*if (!fields["login"]) {
-            formIsValid = false;
-            errors["login"] = "*Введите логин.";
-        } else if (typeof fields["login"] !== "undefined") {
-            if (!fields["login"].match('^[A-Za-zА-Яа-яЁё]{4,60}')) {
-                formIsValid = false;
-                errors["login"] = "*Неверный логин";
-            }
-        }*/
-
-        /*if (!fields["password"]) {
-            formIsValid = false;
-            errors["password"] = "*Введите пароль.";
-        } else if (typeof fields["password"] !== "undefined") {
-            if (!fields["password"].match('^[A-Za-zА-Яа-яЁё]{4,60}')) {
-                formIsValid = false;
-                errors["password"] = "*Введите сложный пароль.";
-            }
-        }*/
+        !fields["password"]
+            ? errors["password"]="Пожалуйста, введите пароль."
+            : !fields["password"].match('^[A-Za-zА-Яа-яЁё]{4,60}')
+            ? errors["password"]="Пароль слишком легкий."
+            : null;
 
         this.setState({
-            errors: errors
-        });
-        return formIsValid;
-    }
+                errors: errors
+            }
+        );
+
+        return Object.keys(errors).length === 0 ? true : false;
+    };
 
     resetForm = () => {
         this.setState({fields: {login: '', password: ''}});
@@ -100,24 +75,26 @@ export default class Login extends React.Component {
     render() {
         const {fields, errors} = this.state;
         return (
-            <div>
+            <div className='login-container'>
                 <form className="registrationForm" onSubmit={this.submituserRegistrationForm}>
                     <h1 className="registrationForm__title">Вход</h1>
                     <LoginComponent
-                        name='Логин'
+                        text='Логин'
                         type='text'
                         placeholder='Логин'
                         value={this.state.fields.login}
                         onChange={this.handleChange}
+                        name='login'
                         form='login'
                     />
                     <div className="errorMsg">{this.state.errors.login}</div>
 
                     <PasswordComponent
-                        name='Пароль'
+                        text='Пароль'
                         type='password'
                         value={this.state.fields.password}
                         onChange={this.handleChange}
+                        name='password'
                         form='password'
                     />
                     <div className="errorMsg">{this.state.errors.password}</div>
@@ -130,20 +107,23 @@ export default class Login extends React.Component {
                             onClick={this.resetForm}
                         />
 
-                        <BtnComponents
-                            text="Вход"
-                            className='btn btn-outline-success'
-                            value='submit'
-                            type='submit'
-                        />
+                        <Link to='main_page'>
+                            <BtnComponents
+                                text="Вход"
+                                className='btn btn-outline-success'
+                                value='submit'
+                                type='submit'
+                            />
+                        </Link>
+
                     </div>
                 </form>
 
                 <div className='form group d-flex justify-content-center'>
                     <Link to='registration'>
                         <BtnBackHome
-                            textBtnBackHome='Я ж не зарегистрирован! Регистрация'
-                            typeBtnBackHome='button'
+                            text='Я ж не зарегистрирован! Регистрация'
+                            type='button'
                         />
                     </Link>
                 </div>
