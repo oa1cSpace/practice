@@ -96,22 +96,35 @@ body {
 
 .nav-container{
     background-color: #e3f2fd;
+    height: 40px;
 }
+
+.menu-btn-color{
+   background-color:  #007bff;
+}
+
 
 .main-page-body{
 
 }
 
 .table-container{
-
+width: 80%;
 }
 
 .vertical-navigation{
 
     position: absolute;
-
-
 }
+
+.navbar-brand img {
+    height: 20px;
+}
+
+.filtered-list .filter {
+    margin-bottom: 21px;
+}
+
 
 .pagination-container{
 
@@ -122,10 +135,6 @@ body {
 }
 
 /* =================== */
-
-.height_100{
-    height: 100%;
-}
 
 
 

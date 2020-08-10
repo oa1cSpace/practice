@@ -3,50 +3,66 @@ import React from 'react';
 export default class MainPage extends React.Component {
     render() {
         return (
-            <div className='underlayer main-page-container height_100'>
+            <div className='underlayer main-page-container'>
+
+                {/*NAV_BAR*/}
                 <div className='nav-container'>
-                    <div className="btn-group d-flex justify-content-end">
-                        <div>
-                            <button type="button" className="btn btn-primary dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true" aria-expanded="false">
-                                Профиль
-                            </button>
-                            <div className="dropdown-menu">
-                                <a className="dropdown-item" href="#">Главная</a>
-                                <a className="dropdown-item" href="#">Пользователи</a>
-                                <a className="dropdown-item" href="#">Товары</a>
-                                <div className="dropdown-divider"></div>
-                                <a className="dropdown-item" href="#">Заказы</a>
+                        {/*PROFILE_BTN*/}
+                        <div className="btn-group d-flex justify-content-end ">
+                            <div>
+                                <button type="button" className="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                    Профиль
+                                </button>
+                                <div className="dropdown-menu">
+                                    <a className="dropdown-item" href="#">Главная</a>
+                                    <a className="dropdown-item" href="#">Пользователи</a>
+                                    <a className="dropdown-item" href="#">Товары</a>
+                                    <div className="dropdown-divider"></div>
+                                    <a className="dropdown-item" href="#">Заказы</a>
+                                </div>
                             </div>
+
                         </div>
-                    </div>
                 </div>
 
-
-
+                {/*BODY_CONTAINER*/}
                 <div className='main-page-body'>
-                    <div className='vertical-navigation'>
 
-                        <nav className="navbar navbar-dark bg-dark">
-                            <button className="navbar-toggler" type="button" data-toggle="collapse"
-                                    data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                                    aria-expanded="false" aria-label="Toggle navigation">
-                                <span className="navbar-toggler-icon"></span>
-                            </button>
-                        </nav>
-                        <div className="collapse" id="navbarToggleExternalContent">
-                            <div className="card card-body">
-                                <a className="nav-link active" href="#"> Главная </a>
-                                <a className="nav-link active" href="#"> Пользователи </a>
-                                <a className="nav-link active" href="#"> Товары </a>
-                                <a className="nav-link active" href="#"> Заказы </a>
+                    {/* LEFT_MENU_CONTAINER*/}
+                    <div className='vertical-navigation sticky-top ml-1 mt-1'>
+                        <div>
+                            <nav className="navbar navbar-dark menu-btn-color p-0">
+                                <button className="navbar-toggler p-0 " type="button" data-toggle="collapse"
+                                        data-target="#navbarToggleExternalContent"
+                                        aria-controls="navbarToggleExternalContent"
+                                        aria-expanded="false" aria-label="Toggle navigation">
+                                    <span className="navbar-toggler-icon "></span>
+                                </button>
+                            </nav>
+                            <div className="collapse" id="navbarToggleExternalContent">
+                                <div className="card card-body">
+                                    <a className="nav-link active" href="#"> Главная </a>
+                                    <a className="nav-link active" href="#"> Пользователи </a>
+                                    <a className="nav-link active" href="#"> Товары </a>
+                                    <a className="nav-link active" href="#"> Заказы </a>
+
+                                </div>
                             </div>
                         </div>
-
                     </div>
 
-                    <div className='table-container container mt-3 height_100'>
-                        <table className="table table-striped">
+                    {/*TABLE+FILTER_CONTAINER*/}
+                    <div className='table-container table-hover container'>
+
+                        {/*FILTER*/}
+                        <div className='container '>
+                           <div> FILTER</div>
+                           <div> FILTER</div>
+                        </div>
+
+                        {/*TABLE*/}
+                        <table className="table ">
                             <thead className='thead-dark'>
                             <tr>
                                 <th scope="col">#</th>
@@ -121,8 +137,10 @@ export default class MainPage extends React.Component {
                     </div>
                 </div>
 
+                {/*FOOTER_CONTAINER*/}
                 <div className="fixed-bottom">
 
+                    {/*PAGE_NAVIGATION*/}
                     <nav aria-label="Page navigation example page-nav">
                         <ul className="pagination justify-content-center">
                             <li className="page-item shadow">
@@ -143,12 +161,11 @@ export default class MainPage extends React.Component {
                         </ul>
                     </nav>
 
+                    {/*FOOTER*/}
                     <footer className="footer  justify-content-center">
                         <p className="text-center">辛苦工作总有回报的 &#169;</p>
                     </footer>
-
                 </div>
-
             </div>
         );
     }
