@@ -1,16 +1,16 @@
 import React from 'react';
 import TableComponent from "../Components/HomePageComp/TableComponent";
-import {generateName, generateEmail, generateId} from "../Functions/RandomFunctions";
 import BtnProfile from "../Components/HomePageComp/BtnProfile";
 import BtnBurger from "../Components/HomePageComp/BtnBurger";
+import {generateName, generateEmail, generateId} from "../Functions/RandomFunctions";
 
 class HomePageCont extends React.Component {
 
     state = {
-        rows: [],
+        rows: this.generateRows(),
     };
 
-    componentDidMount() {
+    generateRows() {
         const amountOfRows = 100;
         const result = [];
 
@@ -25,22 +25,22 @@ class HomePageCont extends React.Component {
             })
         }
 
-        this.setState({rows: result});
-    }
+        return result;
+    };
 
     render() {
         return (
             <div className='containerWhite home-page-container scroll'>
 
-               <BtnBurger/>
-               <BtnProfile/>
+                <BtnBurger/>
+                <BtnProfile/>
 
                 <div className='container-sm'>
                     <TableComponent rows={this.state.rows}/>
                 </div>
             </div>
         );
-    }
+    };
 }
 
 export default HomePageCont;

@@ -1,19 +1,26 @@
 import React from 'react';
 
 class BtnComponent extends React.Component {
-    render() {
-        const value = this.props.value;
-        const className = this.props.className;
-        const type = this.props.type;
-        const text = this.props.text;
-        const onClick = this.props.onClick;
-        const onSubmit = this.props.onSubmit;
+  render() {
+    const { value } = this.props;
+    const { className } = this.props;
+    const { type } = this.props;
+    const { text } = this.props;
+    const { onClick } = this.props;
+    const { onSubmit } = this.props;
 
-        return (
-            <button type={type} className={className} onClick={onClick} onSubmit={onSubmit}
-                    value={value}>{text}</button>
-        );
-    }
-};
+    return (
+      <button
+        type={type}
+        className={className}
+        onClick={onClick}
+        onSubmit={onSubmit}
+        value={value}
+      >
+        {text}
+      </button>
+    );
+  }
+}
 
 export default BtnComponent;

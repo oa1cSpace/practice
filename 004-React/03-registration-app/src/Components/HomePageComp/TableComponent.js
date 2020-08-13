@@ -6,35 +6,62 @@ class TableComponent extends React.Component {
     state = {
         inputFilter: '',
         currentPage: 1,
-        rowsPerPage: 20,
+        rowsPerPage: 10,
+        rowsFiltered: [...this.props.rows],
+    };
+
+    filterColumn = (inputFilter, column) => {
+        return column
+            .toString()
+            .toLowerCase()
+            .includes(inputFilter.toLowerCase());
+    }
+
+    nextPage = () => {
+        const currentPage = this.state.currentPage;
+        this.setState({currentPage: currentPage + 1});
+    }
+
+    prevPage = () => {
+        const currentPage = this.state.currentPage;
+        this.setState({currentPage: currentPage - 1});
+    }
+
+     setPage = (number) => {
+         this.setState({currentPage: number});
+     }
+
+     getPagesCount = () => {
+        return Math.ceil(this.state.rowsFiltered.length / this.state.rowsPerPage);
+    };
+
+     searchFieldChanged = (event) => {
+        const {value: searchPhrase} = event.target;
+
+        const rowsFiltered = this.props.rows.filter((row) => {
+            return Object.values(row)
+                .filter((column) => this.filterColumn(searchPhrase, column)).length;
+        });
+
+        return this.setState({currentPage: 1, rowsFiltered: rowsFiltered});
+    };
+
+    indexOfLastRow = () => {
+        return this.state.currentPage * this.state.rowsPerPage;
+    };
+
+    indexOfFirstRow = () => {
+        return (this.state.currentPage * this.state.rowsPerPage) - this.state.rowsPerPage;
     };
 
     render() {
-        const {rows} = this.props;
-        const {inputFilter, currentPage, rowsPerPage} = this.state;
-        const filterColumn = (column) => {
-            return column.toString().toLowerCase().includes(inputFilter.toLowerCase());
-        };
-        const searchFilter = (row) => {
-            return Object.values(row).filter(filterColumn).length;
-        };
-        const filteredRows = rows.filter(searchFilter);
-        const pagesCount = Math.ceil(filteredRows.length / rowsPerPage);
-        const searchFieldChanged = (event) => {
-            const {value} = event.target;
-            this.setState({inputFilter: value, currentPage: 1});
-        };
-        const indexOfLastRow = currentPage * rowsPerPage;
-        const indexOfFirstRow = indexOfLastRow - rowsPerPage;
-
-        const nextPage = () => this.setState({currentPage: currentPage + 1});
-        const prevPage = () => this.setState({currentPage: currentPage - 1});
-        const setPage = (number) => this.setState({currentPage: number});
-
         return (
             <div>
-                <input className="form-control border mb-3" id="myInput" type="text" placeholder="Отфильтровать..."
-                       onKeyUp={searchFieldChanged}/>
+                <input className="form-control border mb-3"
+                       id="myInput"
+                       type="text"
+                       placeholder="Отфильтровать..."
+                       onKeyUp={this.searchFieldChanged}/>
 
                 <table className="table table-hover" id='table1'>
                     <thead className="thead-dark ">
@@ -49,20 +76,20 @@ class TableComponent extends React.Component {
 
                     <tbody>
                     {
-                        filteredRows
-                            .slice(indexOfFirstRow, indexOfLastRow)
-                            .map((row) => <RowComponent key={row.uniqueId} row={row}/>)
+                        this.state.rowsFiltered
+                            .slice(this.indexOfFirstRow(), this.indexOfLastRow())
+                            .map((row) => <RowComponent key={row.uniqueId} row={row} />)
                     }
                     </tbody>
                 </table>
 
                 <nav aria-label="Page Navigation">
                     <PaginationComponent
-                        prevPage={prevPage}
-                        nextPage={nextPage}
-                        setPage={setPage}
-                        pagesCount={pagesCount}
-                        currentPage={currentPage}
+                        prevPage={this.prevPage}
+                        nextPage={this.nextPage}
+                        setPage={this.setPage}
+                        pagesCount={this.getPagesCount()}
+                        currentPage={this.state.currentPage}
                     />
                 </nav>
             </div>
