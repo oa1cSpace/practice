@@ -9,7 +9,8 @@ class BtnLogin extends React.Component {
 
         return (
             <div className='d-flex justify-content-between mt-3'>
-                <button className="btn text-white" type={typeBtnLogin}>{textBtnLogin}</button>
+
+                    <button className="btn text-white" type={typeBtnLogin}>{textBtnLogin}</button>
             </div>
         );
     }

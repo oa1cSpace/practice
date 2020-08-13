@@ -1,24 +1,19 @@
 import React from 'react';
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import './Containers/RegistrationContainer';
-import RegistrationContainer from "./Containers/RegistrationContainer";
+import './Containers/RegistrationCont';
+import RegistrationCont from "./Containers/RegistrationCont";
 import './Login'
 import Login from "./Login";
-import MainPage from "./MainPage";
+import HomePageCont from "./Containers/HomePageCont";
 
 class App extends React.Component {
     render() {
         return (
             <Router>
-                <Route exact={true} path='/registration' component={RegistrationContainer}/>
+                <Route exact={true} path='/registration' component={RegistrationCont}/>
                 <Route exact={true} path='/login' component={Login}/>
-                <Route exact={true} path='/main_page' component={MainPage}/>
+                <Route exact={true} path='/home' component={HomePageCont}/>
             </Router>
         );
     }

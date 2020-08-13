@@ -6,7 +6,7 @@ body {
     height: 100%;
 }
 
-.registration-container{
+.registration-container {
     margin-top: 10%;
 }
 
@@ -70,17 +70,16 @@ body {
 }
 
 
-.login-container{
+.login-container {
     margin-top: 10%;
- }
-
-/* ---- MAIN_PAGE ---- */
-
-.content {
-    flex: 1 0 auto;
 }
 
-.main-page-container{
+/* ---- HOME_PAGE ---- */
+
+
+.home-page-container {
+    display: flex;
+    flex-direction: column;
     position: fixed;
     top: 0;
     left: 0;
@@ -89,36 +88,52 @@ body {
 
 }
 
-.underlayer{
+.content {
+    flex: 1 0 auto;
+}
+
+.underlayer {
     border-radius: 5px;
     background-color: white;
 }
 
-.nav-container{
-    background-color: #e3f2fd;
-    height: 40px;
+.nav-container {
+    /*background-color: #e3f2fd;
+    height: 40px;*/
 }
 
-.menu-btn-color{
-   background-color:  #007bff;
+.menu-btn-color {
+    background-color: #007bff;
+}
+
+.profile-btn {
+    margin: 2%;
 }
 
 
-.main-page-body{
+.main-page-body {
 
 }
 
-.table-container{
-width: 80%;
+.table-container {
+    margin-top: 5%;
+    width: 80%;
 }
 
-.vertical-navigation{
-
+.vertical-navigation {
     position: absolute;
+    height: 100%;
+
 }
 
-.navbar-brand img {
-    height: 20px;
+.height_100{
+    height: 100%;
+}
+
+
+
+.filter-container {
+    margin: 1%;
 }
 
 .filtered-list .filter {
@@ -126,16 +141,20 @@ width: 80%;
 }
 
 
-.pagination-container{
+.pagination-container {
 
 }
 
-.copyright-container{
+.copyright-container {
 
 }
+
+.scroll{
+    overflow-x: scroll;
+}
+
 
 /* =================== */
-
 
 
 fieldset {

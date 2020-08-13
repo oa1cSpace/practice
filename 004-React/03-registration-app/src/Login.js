@@ -107,7 +107,7 @@ export default class Login extends React.Component {
                             onClick={this.resetForm}
                         />
 
-                        <Link to='main_page'>
+                        <Link to='home'>
                             <BtnComponents
                                 text="Вход"
                                 className='btn btn-outline-success'
