@@ -1,31 +1,31 @@
 import React from 'react';
 
-
 class EmaileComponent extends React.Component {
-    render() {
-        const text = this.props.text;
-        const name = this.props.name;
-        const type = this.props.type;
-        const placeholder = this.props.placeholder;
-        const value = this.props.value;
-        const onChange = this.props.onChange;
-        const form = this.props.form;
+  render() {
+    const { text } = this.props;
+    const { name } = this.props;
+    const { type } = this.props;
+    const { placeholder } = this.props;
+    const { value } = this.props;
+    const { onChange } = this.props;
+    const { form } = this.props;
 
-        return (
-            <fieldset className="fieldset border">
-                <legend className="registrationField__legend ml-2">{text}</legend>
-                <input name='email'
-                       text={text}
-                       className="registrationField__input"
-                       placeholder={placeholder}
-                       value={value}
-                       onChange={onChange}
-                       type={type}
-                       form={form}
-                />
-            </fieldset>
-        );
-    }
+    return (
+      <fieldset className="fieldset border">
+        <legend className="registrationField__legend ml-2">{text}</legend>
+        <input
+          name={name}
+          text={text}
+          className="registrationField__input"
+          placeholder={placeholder}
+          value={value}
+          onChange={onChange}
+          type={type}
+          form={form}
+        />
+      </fieldset>
+    );
+  }
 }
 
 export default EmaileComponent;

@@ -1,19 +1,17 @@
 import React from 'react';
 
-
 class BtnLogin extends React.Component {
-    render() {
+  render() {
+    const { text } = this.props;
+    const { type } = this.props;
 
-        const textBtnLogin = this.props.textBtnLogin;
-        const typeBtnLogin = this.props.typeBtnLogin;
+    return (
+      <div className="d-flex justify-content-between mt-3">
 
-        return (
-            <div className='d-flex justify-content-between mt-3'>
-
-                    <button className="btn text-white" type={typeBtnLogin}>{textBtnLogin}</button>
-            </div>
-        );
-    }
+        <button className="btn text-white" type={type}>{text}</button>
+      </div>
+    );
+  }
 }
 
 export default BtnLogin;

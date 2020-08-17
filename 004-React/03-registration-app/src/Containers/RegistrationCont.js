@@ -8,43 +8,68 @@ import NameComponent from "../Components/NameComponent";
 import BtnComponents from "../Components/BtnComponents";
 import {Link} from "react-router-dom";
 import BtnLogin from "../Components/BtnLogin";
+import {connect} from "react-redux";
+import {setErrors, setField, setLoggedIn, clearForm} from "../Components/redux/actions/login";
 
-export default class RegistrationCont extends React.Component {
-    constructor() {
-        super();
+class RegistrationCont extends React.Component {
+    constructor(props) {
+        // super();
+        super(props);
+
         this.state = {
             fields: {},
             errors: {}
         }
     };
 
-    handleChange = (e) => {
-        const {target} = e;
-        const {fields} = this.state;
-        this.setState({
-            fields: {
-                ...fields,
-                [target.name]: target.value,
-            }
-        });
-    }
+    // handleChange = (e) => {
+    //     const {target} = e;
+    //     const {fields} = this.state;
+    //     this.setState({
+    //         fields: {
+    //             ...fields,
+    //             [target.name]: target.value,
+    //         }
+    //     });
+    // }
+
+     handleChange = ({target}) => {
+        this.props.setField(target)
+      };
+
+    // submituserRegistrationForm = (e) => {
+    //     e.preventDefault();
+    //     if (this.validateForm()) {
+    //         let fields = {
+    //             username: '',
+    //             email: '',
+    //             surname: '',
+    //             login: '',
+    //             password: ''
+    //         };
+    //         this.setState({fields: fields});
+    //     }
+    // }
 
     submituserRegistrationForm = (e) => {
         e.preventDefault();
-        if (this.validateForm()) {
+        const errors = this.validateForm();
+        if (Object.keys(errors).length === 0) {
             let fields = {
                 username: '',
                 email: '',
                 surname: '',
                 login: '',
-                password: ''
-            };
-            this.setState({fields: fields});
+                password:'' };
+            this.props.setLoggedIn(fields);
+        } else {
+            this.props.setErrors(errors);
         }
-    }
+    };
 
-    validateForm = (e) => {
-        let fields = this.state.fields;
+    validateForm = () => {
+        // let fields = this.state.fields;
+        let fields = this.props.fields;
         let errors = {};
         /* eslint-disable no-unused-expressions */
         !fields["username"]
@@ -77,20 +102,38 @@ export default class RegistrationCont extends React.Component {
             ? errors["password"] = "Пароль слишком легкий."
             : null;
 
-        this.setState({
-                errors: errors
-            }
-        );
+        // this.setState({
+        //         errors: errors
+        //     }
+        // );
 
-        return Object.keys(errors).length === 0 ? true : false;
+        // return Object.keys(errors).length === 0 ? true : false;
+         return errors;
     };
 
+    // resetForm = () => {
+    //     this.setState({fields: {
+    //         username: "",
+    //             surname: "",
+    //             email: "",
+    //             login: "",
+    //             password: ""
+    //     }});
+    // }
+
     resetForm = () => {
-        this.setState({fields: {username: "", surname: "", email: "", login: "", password: ""}});
-    }
+        this.props.clearForm({
+            username: "",
+            surname: "",
+            email: "",
+            login: "",
+            password: ""
+        });
+    };
 
     render() {
-        const {fields, errors} = this.state;
+        // const {fields, errors} = this.state;
+        const {fields, errors} = this.props;
         return (
             <div className='registration-container'>
                 <form className="registrationForm"
@@ -107,70 +150,79 @@ export default class RegistrationCont extends React.Component {
                                 type='text'
                                 className="registrationField__input"
                                 placeholder='Имя'
-                                onChange={this.handleChange}
-                                value={this.state.fields.username}
+                                //value={this.state.fields.username}
+                                value={fields.username}
                                 name='username'
                                 form='username'
-                                required
+                                onChange={this.handleChange}
+                                // required
                             />
-                            <div className="errorMsg">{this.state.errors.username}</div>
+                            {/*<div className="errorMsg">{this.state.errors.username}</div>*/}
+                            <div className="text-danger  errorMsg">{errors.username}</div>
                         </div>
                         <div>
                             <NameComponent
+                                className="registrationField__input"
                                 text='Фамилия'
                                 type='text'
-                                className="registrationField__input"
                                 placeholder='Фамилия'
-                                onChange={this.handleChange}
-                                value={this.state.fields.surname}
+                                // value={this.state.fields.surname}
+                                value={fields.surname}
                                 name='surname'
                                 form='surname'
-                                required
+                                onChange={this.handleChange}
+                                // required
                             />
-                            <div className="errorMsg">{this.state.errors.surname}</div>
+                            {/*<div className="errorMsg">{this.state.errors.surname}</div>*/}
+                            <div className="text-danger  errorMsg">{errors.surname}</div>
                         </div>
                     </div>
                     <EmaileComponent
                         text='Email'
-                        name='Email'
-                        type='email'
+                        name='email'
+                        type='text'
                         placeholder='example@email.com'
-                        value={this.state.fields.email}
+                        value={fields.email}
                         onChange={this.handleChange}
                         form='email'
                     />
-                    <div className="errorMsg">{this.state.errors.email}</div>
+                    {/*<div className="errorMsg">{this.state.errors.email}</div>*/}
+                    <div className="text-danger  errorMsg">{errors.email}</div>
+
                     <LoginComponent
                         text='Логин'
                         type='text'
                         placeholder='Логин'
-                        value={this.state.fields.login}
+                        value={fields.login}
                         onChange={this.handleChange}
                         name='login'
                         form='login'
                     />
-                    <div className="errorMsg">{this.state.errors.login}</div>
+                    {/*<div className="errorMsg">{this.state.errors.login}</div>*/}
+                    <div className="text-danger  errorMsg">{errors.login}</div>
                     <PasswordComponent
                         text='Пароль'
                         type='password'
-                        value={this.state.fields.password}
+                        value={fields.password}
                         onChange={this.handleChange}
                         name='password'
                         form='password'
                     />
-                    <div className="errorMsg">{this.state.errors.password}</div>
+                    {/*<div className="errorMsg">{this.state.errors.password}</div>*/}
+                    <div className="text-danger  errorMsg">{errors.password}</div>
                     <div className='d-flex justify-content-between mt-3'>
                         <BtnComponents
-                            text="Сброс"
                             className='btn btn-outline-danger'
-                            value='reset'
+                            text="Сброс"
+                            // value='reset'
                             onClick={this.resetForm}
                         />
                         <BtnComponents
+                            className='btn btn-outline-success btn_active'
                             text="Регистрация"
-                            className='btn btn-outline-success'
-                            value='submit'
-                            type='submit'
+                            // value='submit'
+                            // type='submit'
+                            onSubmit= {this.submituserRegistrationForm}
                         />
                     </div>
                 </form>
@@ -178,8 +230,8 @@ export default class RegistrationCont extends React.Component {
                 <div className='form group d-flex justify-content-center'>
                     <Link to='login'>
                         <BtnLogin
-                            textBtnLogin='Уже есть аккаунт? Вход'
-                            typeBtnLogin='button'
+                            text='Уже есть аккаунт? Вход'
+                            type='button'
                         />
                     </Link>
                 </div>
@@ -187,3 +239,8 @@ export default class RegistrationCont extends React.Component {
         );
     }
 }
+
+
+const mapStateToProps = state => ({ ...state.login });
+
+export default connect(mapStateToProps, { setErrors, setField, setLoggedIn, clearForm })(RegistrationCont)
