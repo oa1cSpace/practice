@@ -1,10 +1,13 @@
 import {combineReducers} from "redux";
-import {rowsReducer} from "./rowsReducer";
+import {userRowsReducer} from "./userRowsReducer";
 import {loginReducer} from "./loginReducer";
-
+import {registrationReducer} from "./registrationReducer";
 
 export const rootReducers = combineReducers({
-    rows: rowsReducer,
-    login: loginReducer
+    rows: userRowsReducer,
+    registration: registrationReducer,
+    login: loginReducer,
 });
+
+
 

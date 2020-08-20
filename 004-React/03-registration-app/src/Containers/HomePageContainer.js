@@ -1,46 +1,29 @@
 import React from 'react';
-import TableComponent from "../Components/HomePageComp/TableComponent";
-import BtnProfile from "../Components/HomePageComp/BtnProfile";
-import BtnBurger from "../Components/HomePageComp/BtnBurger";
-import {generateName, generateEmail, generateId} from "../Functions/RandomFunctions";
-import {connect} from "react-redux";
+import TableComponent from "../Components/HomePageComponents/TableComponent";
+import BtnProfile from "../Components/HomePageComponents/BtnProfile";
+import BtnBurger from "../Components/HomePageComponents/BtnBurger";
 import {generateData} from "../Components/redux/actions/row";
+import {connect} from "react-redux";
 
 class HomePageContainer extends React.Component {
-
-    componentDidMount() {
-        this.props.generateData(this.generateRows());
-    }
-
-    generateRows() {
-        const amountOfRows = 100;
-        const result = [];
-        for (let i = 0; i < amountOfRows; i++) {
-            result.push({
-                id: generateId(),
-                name1: generateName(),
-                name2: generateName(),
-                name3: generateName(),
-                email: generateEmail(),
-                uniqueId: i,
-            })
-        }
-
-        return result;
-    };
-
     render() {
         return (
             <div className='containerWhite home-page-container scroll'>
                 <BtnBurger/>
                 <BtnProfile/>
-                <div className='container-sm'>
-                    {/*<TableComponent rows={this.state.rows}/>*/}
-                    <TableComponent/>
+                <div className='container-sm shadow p-3 mb-5 bg-white rounded'>
+                    <TableComponent data={this.props.generateUserRow}/>
                 </div>
             </div>
         );
     };
 }
 
-export default connect(null, { generateData })(HomePageContainer);
+const mapStateToProps = state => {
+
+    return {
+        ...state.rows,
+    };
+};
+
+export default connect(mapStateToProps, {generateData})(HomePageContainer);
